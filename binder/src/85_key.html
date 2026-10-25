@@ -1,0 +1,110 @@
+<section>
+<anchor id="K" label="K · Practice Quiz Answer Key"/>
+<h2 class="sec">K · Answer key: worked solutions</h2>
+<p class="small">The "→ p." links point to the binder page with the method. Answers are given to 4 decimals. A z-table answer may differ from Normal CD in the 3rd–4th decimal, and both are accepted.</p>
+
+<div class="sol"><span class="qn">1. Contingency table</span> <span class="lookup">→ {{p:s2-table}}</span><br>
+Totals: F = 90, M = 110, L = 150, TL = 50, N = 200.<br>
+(a) P(F ∩ L) = 72/200 = <span class="ans">0.36</span> (b) P(L) = 150/200 = <span class="ans">0.75</span> (c) P(L | F) = 72/90 = <span class="ans">0.80</span> (d) P(F | TL) = 18/50 = <span class="ans">0.36</span><br>
+(e) P(F ∪ L) = (90 + 150 − 72)/200 = 168/200 = <span class="ans">0.84</span><br>
+(f) P(L | F) = 0.80 ≠ P(L) = 0.75. Equivalently, P(F)P(L) = 0.45 × 0.75 = 0.3375 ≠ 0.36. So F and L are <b>not independent</b>: female students pass at a higher rate.</div>
+
+<div class="sol"><span class="qn">2. Normal</span> <span class="lookup">→ {{p:s5-z}}, {{p:s5-back}}</span><br>
+X ~ N(500, 25), so <b>σ = 5</b> (not 25!).<br>
+(a) z = (490 − 500)/5 = −2.00 → Φ(−2.00) = <span class="ans">0.0228</span><br>
+(b) z = −1.00 and 2.00 → 0.9772 − 0.1587 = <span class="ans">0.8185</span><br>
+(c) z = 12/5 = 2.40 → 1 − 0.9918 = <span class="ans">0.0082</span><br>
+(d) Heaviest 10% means a left area of 0.90, so z = 1.28 and x = 500 + 1.28(5) = <span class="ans">506.4 g</span> (Inverse Normal: 506.41)</div>
+
+<div class="sol"><span class="qn">3. Discrete table</span> <span class="lookup">→ {{p:s3-pmf}}, {{p:s3-ev}}</span><br>
+(a) 0.1 + k + 2k + 0.3 = 1 → <span class="ans">k = 0.2</span>, so the table is 0.1, 0.2, 0.4, 0.3.<br>
+(b) P(X ≥ 2) = 0.4 + 0.3 = <span class="ans">0.7</span>; F(1.5) = P(X ≤ 1.5) = P(0) + P(1) = <span class="ans">0.3</span><br>
+(c) E(X) = 0 + 0.2 + 0.8 + 0.9 = <span class="ans">1.9</span>; E(X²) = 0 + 0.2 + 1.6 + 2.7 = 4.5; Var(X) = 4.5 − 1.9² = <span class="ans">0.89</span><br>
+(d) E(Y) = 3(1.9) − 2 = <span class="ans">3.7</span>; Var(Y) = 3²(0.89) = <span class="ans">8.01</span> (the −2 does not change the variance)</div>
+
+<div class="sol"><span class="qn">4. Descriptive</span> <span class="lookup">→ {{p:s1-mean}}, {{p:s1-quart}}</span><br>
+Sorted: 4 5 5 5 6 6 7 7 8 9 12 30 (n = 12), Σx = 104, Σx² = 1450.<br>
+(a) x̄ = 104/12 = <span class="ans">8.6667</span>; median position 6.5 → (6 + 7)/2 = <span class="ans">6.5</span>; mode = <span class="ans">5</span><br>
+(b) \(s^2=\frac{1450-104^2/12}{11}=\frac{548.667}{11}=\) <span class="ans">49.8788</span>, s = <span class="ans">7.0625</span> (STAT: sx)<br>
+(c) Q1 position 0.25(13) = 3.25 → 5 + 0.25(5 − 5) = <span class="ans">5</span>; Q3 position 9.75 → 8 + 0.75(9 − 8) = <span class="ans">8.75</span>; IQR = <span class="ans">3.75</span><br>
+(d) LL = 5 − 5.625 = −0.625, UL = 8.75 + 5.625 = 14.375, so <span class="ans">30 is an outlier</span><br>
+(e) Mean &gt; median, so the distribution is <b>skewed right</b> because of the outlier. The <b>median</b> is the better measure of centre: without the 30, x̄ = 6.73 but the median barely moves, to 6.</div>
+
+<div class="sol"><span class="qn">5. Poisson</span> <span class="lookup">→ {{p:s3-pois}}</span><br>
+X = number of calls per hour, X ~ Poisson(4).<br>
+(a) P(X = 2) = e⁻⁴4²/2! = <span class="ans">0.1465</span><br>
+(b) P(X ≤ 3) = e⁻⁴(1 + 4 + 8 + 10.667) = 0.0183 + 0.0733 + 0.1465 + 0.1954 = <span class="ans">0.4335</span><br>
+(c) 30 minutes, so <b>λ = 2</b>: P(Y ≥ 1) = 1 − e⁻² = <span class="ans">0.8647</span><br>
+(d) P(X &gt; 5) = 1 − P(X ≤ 5) = 1 − 0.7851 = <span class="ans">0.2149</span> (Poisson CD x = 5, μ = 4)</div>
+
+<div class="sol"><span class="qn">6. General pdf</span> <span class="lookup">→ {{p:s4-pdf}}, {{p:s4-cdf}}, {{p:s4-pct}}</span><br>
+(a) \(\int_1^3 c(x+1)dx=c\big[\tfrac{x^2}{2}+x\big]_1^3=c(7.5-1.5)=6c=1\Rightarrow\) <span class="ans">c = 1/6</span>. f ≥ 0 on [1, 3] ✓<br>
+(b) \(\P(X\le2)=\tfrac16\big[\tfrac{x^2}{2}+x\big]_1^2=\tfrac16(4-1.5)=\) <span class="ans">0.4167</span>; P(1.5 &lt; X &lt; 2.5) = F(2.5) − F(1.5) = 0.6875 − 0.1875 = <span class="ans">0.5</span><br>
+(c) \(F(x)=\begin{cases}0 & x&lt;1\\ \frac{x^2+2x-3}{12} & 1\le x\le3\\ 1 & x&gt;3\end{cases}\). Check: F(1) = 0 and F(3) = 12/12 = 1 ✓<br>
+(d) \(\mu=\tfrac16\int_1^3(x^2+x)dx=\tfrac16\big[\tfrac{x^3}{3}+\tfrac{x^2}{2}\big]_1^3=\tfrac16\left(13.5-\tfrac56\right)=\tfrac{19}{9}=\) <span class="ans">2.1111</span><br>
+\(\E(X^2)=\tfrac16\big[\tfrac{x^4}{4}+\tfrac{x^3}{3}\big]_1^3=\tfrac16\left(29.25-\tfrac{7}{12}\right)=\tfrac{43}{9}=4.7778\); σ² = 43/9 − (19/9)² = 26/81 = <span class="ans">0.3210</span><br>
+(e) F(m) = 0.5 → m² + 2m − 3 = 6 → m² + 2m − 9 = 0 → m = −1 + √10 = <span class="ans">2.1623</span> (take the root inside [1, 3])</div>
+</section>
+
+<section class="cont">
+<div class="sol"><span class="qn">7. Total probability + Bayes</span> <span class="lookup">→ {{p:s2-total}}</span><br>
+(a) P(D) = 0.5(0.02) + 0.3(0.03) + 0.2(0.05) = 0.010 + 0.009 + 0.010 = <span class="ans">0.029</span><br>
+(b) P(C | D) = 0.010/0.029 = <span class="ans">0.3448</span><br>
+(c) P(A | D) = 0.3448, P(B | D) = 0.3103, P(C | D) = 0.3448. <b>A and C are tied</b> as the most likely source. A has the lowest defect rate but makes the most products. Check: the three add to 1.</div>
+
+<div class="sol"><span class="qn">8. Binomial</span> <span class="lookup">→ {{p:s3-binom}}</span><br>
+X = number of defective components, X ~ B(12, 0.1).<br>
+(a) \(\binom{12}{2}(0.1)^2(0.9)^{10}=66(0.01)(0.3487)=\) <span class="ans">0.2301</span><br>
+(b) P(0) + P(1) = 0.2824 + 0.3766 = <span class="ans">0.6590</span><br>
+(c) P(X ≥ 3) = 1 − P(X ≤ 2) = 1 − (0.6590 + 0.2301) = <span class="ans">0.1109</span><br>
+(d) 1 − P(0) = 1 − 0.9¹² = <span class="ans">0.7176</span><br>
+(e) μ = 12(0.1) = <span class="ans">1.2</span>; σ = √(12 · 0.1 · 0.9) = √1.08 = <span class="ans">1.0392</span></div>
+
+<div class="sol"><span class="qn">9. Exponential</span> <span class="lookup">→ {{p:s6-exp}}, {{p:s6-mem}}</span><br>
+Mean 1000, so λ = 1/1000 = 0.001 per hour.<br>
+(a) P(X &lt; 500) = 1 − e^(−0.5) = <span class="ans">0.3935</span> (b) P(X &gt; 1500) = e^(−1.5) = <span class="ans">0.2231</span><br>
+(c) Memoryless: P(X &gt; 1500 | X &gt; 1000) = P(X &gt; 500) = e^(−0.5) = <span class="ans">0.6065</span><br>
+(d) Median = ln 2/λ = <span class="ans">693.15 h</span></div>
+
+<div class="sol"><span class="qn">10. Counting</span> <span class="lookup">→ {{p:s2-count}}</span><br>
+(a) Ways = C(10, 4) = <span class="ans">210</span>. P(exactly 2 women) = C(4,2)·C(6,2)/210 = 6·15/210 = <span class="ans">0.4286</span>. P(at least 1 woman) = 1 − C(6,4)/210 = 1 − 15/210 = <span class="ans">0.9286</span><br>
+(b) The roles are different, so order matters: P(5, 3) = 5·4·3 = <span class="ans">60</span></div>
+
+<div class="sol"><span class="qn">11. Hypergeometric</span> <span class="lookup">→ {{p:s3-hyper}}</span><br>
+N = 15, M = 4 broken, n = 5.<br>
+(a) \(\P(X=1)=\frac{\binom41\binom{11}{4}}{\binom{15}{5}}=\frac{4\cdot330}{3003}=\) <span class="ans">0.4396</span><br>
+(b) 1 − P(X = 0) = 1 − C(11,5)/C(15,5) = 1 − 462/3003 = <span class="ans">0.8462</span><br>
+(c) E(X) = 5(4/15) = <span class="ans">1.3333</span>; Var(X) = (10/14)(5)(4/15)(11/15) = <span class="ans">0.6984</span></div>
+
+<div class="sol"><span class="qn">12. Prove pdf</span> <span class="lookup">→ {{p:s4-pdf}}</span><br>
+(1) For x ≥ 1, 0.2 &gt; 0 and e^(·) &gt; 0, so f(x) &gt; 0. Elsewhere f = 0. So f ≥ 0 ✓<br>
+(2) \(\int_{-\infty}^{\infty}f=\int_1^\infty 0.2e^{-0.2(x-1)}dx=\big[-e^{-0.2(x-1)}\big]_1^\infty=0-(-1)=1\) ✓ ∴ f is a pdf.<br>
+P(X &gt; 6) = \(\big[-e^{-0.2(x-1)}\big]_6^\infty=e^{-1}=\) <span class="ans">0.3679</span>; P(2 &lt; X &lt; 4) = e^(−0.2) − e^(−0.6) = 0.8187 − 0.5488 = <span class="ans">0.2699</span><br>
+<span class="small">This is an exponential distribution with λ = 0.2 shifted to start at 1, so E(X) = 1 + 5 = 6.</span></div>
+
+<div class="sol"><span class="qn">13. Chebyshev and empirical rule</span> <span class="lookup">→ {{p:s1-cheb}}</span><br>
+(a) 54 and 86 are 70 ± 16 = 70 ± 2(8), so k = 2: at least 1 − 1/4 = <span class="ans">0.75</span><br>
+(b) 86 = μ + 2σ, so ≈ (1 − 0.95)/2 = <span class="ans">0.025</span><br>
+(c) 62 = μ − σ, 86 = μ + 2σ: ≈ 0.68/2 + 0.95/2 = <span class="ans">0.815</span> (the z-table gives 0.8185)</div>
+
+<div class="sol"><span class="qn">14. Normal approximation</span> <span class="lookup">→ {{p:s5-approx}}</span><br>
+X ~ B(100, 0.3). np = 30 ≥ 5 and nq = 70 ≥ 5, so the approximation is OK. μ = 30, σ = √21 = 4.5826.<br>
+(a) P(X ≤ 25) ≈ P(Y ≤ 25.5): z = (25.5 − 30)/4.5826 = −0.98 → <span class="ans">0.1635</span><br>
+(b) P(X = 30) ≈ P(29.5 ≤ Y ≤ 30.5): z = ±0.11 → 0.5438 − 0.4562 = <span class="ans">0.0876</span><br>
+(c) Exact: Binomial CD(25; 100, 0.3) = <b>0.1631</b>, Binomial PD(30) = <b>0.0868</b>. The approximation is very close.</div>
+
+<div class="sol"><span class="qn">15. Uniform</span> <span class="lookup">→ {{p:s4-unif}}</span><br>
+(a) (20 − 15)/20 = <span class="ans">0.25</span> (b) (12 − 5)/20 = <span class="ans">0.35</span> (c) μ = 10 min, σ² = 20²/12 = <span class="ans">33.33</span></div>
+
+<div class="sol"><span class="qn">16. Independence</span> <span class="lookup">→ {{p:s2-union}}, {{p:s2-indep}}</span><br>
+(a) 1 − P(none) = 1 − 0.15³ = <span class="ans">0.9966</span><br>
+(b) B(3, 0.85): 3(0.85)²(0.15) = <span class="ans">0.3251</span><br>
+(c) <b>No.</b> They can happen together: P(both) = 0.85² = 0.7225 ≠ 0. The alarms are independent but not mutually exclusive.</div>
+
+<h3>Self-score</h3>
+<table class="full small"><thead><tr><th>Score</th><th>What to do next</th></tr></thead><tbody>
+<tr><td>Missed any σ vs σ², ≤ vs &lt;, or λ-rescaling</td><td>Re-read Tab X before the exam. These are exactly the class-board traps.</td></tr>
+<tr><td>Lost time choosing a method</td><td>Use Tab I first next time, before reading the chapter pages.</td></tr>
+<tr><td>Calculation slips</td><td>Keep unrounded values in STO memory and run the DIST check values (Tab C) tonight.</td></tr>
+</tbody></table>
+</section>

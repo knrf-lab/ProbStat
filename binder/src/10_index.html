@@ -1,0 +1,53 @@
+<section>
+<anchor id="I" label="I · Problem-type Index"/>
+<h2 class="sec">I · Problem-type index: "I see … → I do … → page"</h2>
+<p>Look up the <b>phrase or setup</b> in the question, not the chapter name.</p>
+<table class="full idx">
+<thead><tr><th>The question says / shows …</th><th>Method</th><th>Page</th></tr></thead>
+<tbody>
+<tr class="grp"><td colspan="3">1 · Data sets (descriptive statistics)</td></tr>
+<tr><td>a list of numbers: "rata-rata, median, modus"</td><td>\(\bar x=\sum x/n\); median at position \(0.5(n+1)\)</td><td>{{p:s1-mean}}</td></tr>
+<tr><td>"varians / simpangan baku" of data</td><td>\(s^2=\dfrac{\sum x^2-(\sum x)^2/n}{n-1}\); STAT mode check</td><td>{{p:s1-var}}</td></tr>
+<tr><td>"kuartil, IQR, box plot, pencilan (outlier), five-number summary"</td><td>Q1 at \(0.25(n+1)\), Q3 at \(0.75(n+1)\); fences \(Q_1-1.5\,IQR,\;Q_3+1.5\,IQR\)</td><td>{{p:s1-quart}}</td></tr>
+<tr><td>"at least what proportion within k std dev" (no shape given)</td><td>Chebyshev \(1-1/k^2\)</td><td>{{p:s1-cheb}}</td></tr>
+<tr><td>"mound-shaped / bell-shaped", 68–95–99.7</td><td>Empirical rule</td><td>{{p:s1-cheb}}</td></tr>
+<tr><td>qualitative vs quantitative, discrete vs continuous, skewness, stem-and-leaf</td><td>Definitions + shape rules (mean vs median)</td><td>{{p:S1}}</td></tr>
+<tr class="grp"><td colspan="3">2 · Events and probability</td></tr>
+<tr><td>a two-way table of counts (gender × lulus, age × insurance …)</td><td>joint = cell/total; marginal = row or column total/total; conditional = cell/row-or-column total</td><td>{{p:s2-table}}</td></tr>
+<tr><td>"A atau B" (A or B), "A dan B" (A and B)</td><td>\(\P(A\cup B)=\P(A)+\P(B)-\P(A\cap B)\)</td><td>{{p:s2-union}}</td></tr>
+<tr><td>"jika diketahui / given that"</td><td>\(\P(A\mid B)=\P(A\cap B)/\P(B)\)</td><td>{{p:s2-cond}}</td></tr>
+<tr><td>"apakah A dan B saling bebas?" (are A and B independent?)</td><td>check \(\P(A\cap B)=\P(A)\P(B)\) <i>or</i> \(\P(A\mid B)=\P(A)\)</td><td>{{p:s2-indep}}</td></tr>
+<tr><td>"saling lepas?" (mutually exclusive?)</td><td>check \(\P(A\cap B)=0\). <b>Not</b> the same as independent!</td><td>{{p:s2-indep}}</td></tr>
+<tr><td>"at least one" / "sedikitnya satu"</td><td>complement: \(1-\P(\text{none})\)</td><td>{{p:s2-union}}</td></tr>
+<tr><td>several machines/sources with % share and % defect, "P(defective)"</td><td>Law of total probability (tree)</td><td>{{p:s2-total}}</td></tr>
+<tr><td>… "found defective; P(it came from machine B)?"</td><td>Bayes' rule</td><td>{{p:s2-bayes}}</td></tr>
+<tr><td>"berapa banyak cara" (how many ways), arrange, choose, committee, password</td><td>mn rule / \(P^n_r\) / \(C^n_r\)</td><td>{{p:s2-count}}</td></tr>
+<tr><td>drawing items from a box, equally likely outcomes</td><td>\(\P(A)=n(A)/N\) with combinations</td><td>{{p:s2-count}}</td></tr>
+<tr class="grp"><td colspan="3">3 · Discrete random variables</td></tr>
+<tr><td>a table of x and P(x), possibly with an unknown k</td><td>\(\sum p(x)=1\) to find k; then E, Var</td><td>{{p:s3-pmf}}</td></tr>
+<tr><td>"tentukan distribusi peluang X" (dice, coins, selisih/jumlah dadu)</td><td>list the outcomes, count them, build the table</td><td>{{p:s3-pmf}}</td></tr>
+<tr><td>E(X), Var(X) from a table, E(aX+b)</td><td>\(\sum x p(x)\), \(\sum x^2p(x)-\mu^2\), \(a\mu+b\), \(a^2\sigma^2\)</td><td>{{p:s3-ev}}</td></tr>
+<tr><td>n independent trials, same p, count successes</td><td><b>Binomial</b> B(n, p)</td><td>{{p:s3-binom}}</td></tr>
+<tr><td>"rata-rata λ kejadian per (jam/hari/halaman/km)", count events</td><td><b>Poisson</b>(λ); rescale λ to the asked interval</td><td>{{p:s3-pois}}</td></tr>
+<tr><td>draw n from N <i>without replacement</i>, M "successes" in the lot</td><td><b>Hypergeometric</b></td><td>{{p:s3-hyper}}</td></tr>
+<tr><td>"until the first success" / "the r-th success"</td><td>Geometric / Negative Binomial</td><td>{{p:s3-geo}}</td></tr>
+<tr><td>Binomial with large n (np ≥ 5 and nq ≥ 5)</td><td>Normal approximation + continuity correction ±0.5</td><td>{{p:s5-approx}}</td></tr>
+<tr class="grp"><td colspan="3">4–6 · Continuous random variables</td></tr>
+<tr><td>"Buktikan f(x) merupakan pdf" (prove it is a pdf) / "find c (konstanta)"</td><td>\(f\ge 0\) and \(\int f=1\)</td><td>{{p:s4-pdf}}</td></tr>
+<tr><td>f(x) given, "P(a ≤ X ≤ b)"</td><td>\(\int_a^b f(x)\,dx\) (calculator ∫ key)</td><td>{{p:s4-pdf}}</td></tr>
+<tr><td>"fungsi kumulatif F(x)", "cdf"</td><td>\(F(x)=\int_{-\infty}^x f(t)\,dt\), piecewise</td><td>{{p:s4-cdf}}</td></tr>
+<tr><td>"median / persentil ke-p / η(p)" for a pdf</td><td>solve \(F(\eta)=p\)</td><td>{{p:s4-pct}}</td></tr>
+<tr><td>mean / variance of a pdf</td><td>\(\int x f\), \(\int x^2 f-\mu^2\)</td><td>{{p:s4-ev}}</td></tr>
+<tr><td>"uniformly distributed / seragam" on [A, B]</td><td>Uniform: \((x-A)/(B-A)\)</td><td>{{p:s4-unif}}</td></tr>
+<tr><td>the worked class example f(x) = 0,075x + 0,2 on [3, 5]</td><td>full solution a–f</td><td>{{p:s4-ex}}</td></tr>
+<tr><td>"berdistribusi normal" N(μ, σ²), "P(X &lt; x)"</td><td>\(z=(x-\mu)/\sigma\) → z-table / Normal CD</td><td>{{p:s5-z}}</td></tr>
+<tr><td>"top 5% / only 1% exceed / find x such that P = …"</td><td>work backwards: \(x=\mu+z\sigma\)</td><td>{{p:s5-back}}</td></tr>
+<tr><td>"waktu tunggu / umur / lifetime", "rata-rata waktu 90 menit"</td><td><b>Exponential</b>, λ = 1/mean</td><td>{{p:s6-exp}}</td></tr>
+<tr><td>"given it has already lasted t …"</td><td>memoryless: \(\P(X&gt;t+s\mid X&gt;t)=e^{-\lambda s}\)</td><td>{{p:s6-mem}}</td></tr>
+<tr><td>"Y = g(X), find the pdf/cdf of Y"</td><td>cdf method: \(F_Y(y)=\P(g(X)\le y)\), then differentiate</td><td>{{p:s6-func}}</td></tr>
+<tr class="grp"><td colspan="3">Tools</td></tr>
+<tr><td>calculator: DIST, ∫, STAT, nCr</td><td>keystrokes + check values</td><td>{{p:C}}</td></tr>
+<tr><td>z-table / binomial table / Poisson table</td><td>Tab T</td><td>{{p:T}}</td></tr>
+<tr><td>"something looks wrong on the board/notes"</td><td>Traps and errata</td><td>{{p:X}}</td></tr>
+</tbody></table>
+</section>
