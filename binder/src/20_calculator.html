@@ -1,0 +1,63 @@
+<section>
+<anchor id="C" label="C · Calculator Guide (fx-991ID)"/>
+<h2 class="sec">C · Casio fx-991ID calculator guide</h2>
+<p class="small">Your model has DIST mode with Normal PD/CD, Inverse Normal, Binomial PD/CD and Poisson PD/CD. Menu numbers can differ slightly between versions, so <b>select by name</b>. Each block has a <b>check value</b>: run it once tonight to confirm the input order on your unit.</p>
+
+<anchor id="c-dist"/>
+<h3>1 · DIST mode: <kbd>MODE</kbd> → (scroll if needed) → <b>DIST</b></h3>
+<table class="full">
+<thead><tr><th>Function</th><th>Gives</th><th>It asks for</th><th>Check value</th></tr></thead>
+<tbody>
+<tr><td><b>Binomial PD</b> → choose <b>Var</b></td><td>\(\P(X=x)\)</td><td>x, N (= n), p</td><td>x=3, N=8, p=0.4 → <b>0.27869</b></td></tr>
+<tr><td><b>Binomial CD</b> → <b>Var</b></td><td>\(\P(X\le x)\)</td><td>x, N, p</td><td>x=3, N=8, p=0.4 → <b>0.59409</b></td></tr>
+<tr><td><b>Poisson PD</b> → <b>Var</b></td><td>\(\P(X=x)\)</td><td>x, μ (= λ)</td><td>x=5, μ=3 → <b>0.10082</b></td></tr>
+<tr><td><b>Poisson CD</b> → <b>Var</b></td><td>\(\P(X\le x)\)</td><td>x, μ</td><td>x=3, μ=3 → <b>0.64723</b></td></tr>
+<tr><td><b>Normal CD</b></td><td>\(\P(\text{Lower}\le X\le \text{Upper})\)</td><td>Lower, Upper, <b>σ</b>, μ</td><td>L=485, U=515, σ=8, μ=500 → <b>0.93921</b></td></tr>
+<tr><td><b>Inverse Normal</b></td><td>x with \(\P(X\le x)=\)Area (<b>left tail only</b>)</td><td>Area, σ, μ</td><td>Area=0.95, σ=1, μ=0 → <b>1.64485</b></td></tr>
+<tr><td>Normal PD</td><td>the height f(x), <b>not a probability</b></td><td>x, σ, μ</td><td>rarely needed</td></tr>
+</tbody></table>
+<div class="warn"><b>Normal CD and Inverse Normal ask for σ (the SD), not σ².</b> The class writes X ~ N(500, 64), so enter σ = √64 = 8. In X ~ N(8,46; 0,84), σ = √0.84 = 0.9165.</div>
+<div class="two">
+<div class="calc"><b>One-sided normal probabilities with Normal CD</b><br>
+\(\P(X\le b)\): Lower = <span class="mono">−1×10^99</span> (type <kbd>(−)</kbd><kbd>1</kbd><kbd>×10ˣ</kbd><kbd>99</kbd>), Upper = b<br>
+\(\P(X\ge a)\): Lower = a, Upper = <span class="mono">1×10^99</span><br>
+Check: N(15015, 3540²), P(X &gt; 18000) → <b>0.19955</b></div>
+<div class="calc"><b>Right-tail inverse</b> ("only 1% exceed")<br>
+Inverse Normal works on the left tail, so enter Area = 1 − 0.01 = 0.99.<br>
+Check: ground beef N(1, 0.10²), Area 0.99 → <b>1.2326</b> lb</div>
+</div>
+<div class="calc"><b>Turning CD output into what is asked</b> (discrete X):
+P(X = k) = PD(k) · P(X ≤ k) = CD(k) · P(X &lt; k) = CD(k−1) · P(X ≥ k) = 1 − CD(k−1) · P(X &gt; k) = 1 − CD(k) · P(a ≤ X ≤ b) = CD(b) − CD(a−1)</div>
+<div class="tip">Use DIST to <b>check</b> answers. On paper, still write the formula, the substitution and the z-value. The z-table method is what the class boards show (Z rounded to 2 decimals). The table answer can differ from the calculator in the 3rd decimal. Both are fine; say which you used.</div>
+
+<anchor id="c-int"/>
+<h3>2 · Integration (COMP mode): <kbd>∫▭dx</kbd> key</h3>
+<ul>
+<li><kbd>MODE</kbd> <b>COMP</b>, press <kbd>∫▭</kbd>, type f(x) using <kbd>ALPHA</kbd><kbd>)</kbd> for <b>X</b>, then the lower and upper limits with the arrow keys, then <kbd>=</kbd>.</li>
+<li>Check: \(\int_3^4 (0.075x+0.2)\,dx\) → <b>0.4625</b>. \(\int_3^5 x(0.075x+0.2)\,dx\) → <b>4.05</b>.</li>
+<li>For an <b>infinite</b> limit, do the tail analytically or use a finite limit far into the tail (e.g. \(\int_{0.5}^{200}\)), then confirm the answer stops changing. Avoid 10^99 inside ∫, because the numeric integrator can fail.</li>
+<li>The class integrated the normal pdf directly with ∫. This works if the limits are within about 6σ of μ, e.g. \(\int_{485}^{515}\frac{1}{\sqrt{2\pi\cdot64}}e^{-\frac12((x-500)/8)^2}dx = 0.9392\). Normal CD is faster.</li>
+</ul>
+
+<h3>3 · Solve for a percentile / median: <kbd>SHIFT</kbd><kbd>CALC</kbd> (SOLVE)</h3>
+<p>Type the equation \(F(x)=p\) with <kbd>ALPHA</kbd><kbd>CALC</kbd> for "=". Example (median of the Practice Quiz Q6 pdf): <span class="mono">(X²/2+X−1.5)/6 = 0.5</span> → SHIFT CALC, start guess 2 → <b>X = 2.1623</b>. If two roots exist, give a starting guess inside the support [A, B].</p>
+
+<anchor id="c-stat"/>
+<h3>4 · STAT mode for data: <kbd>MODE</kbd> → <b>STAT</b> → <b>1-VAR</b></h3>
+<ul>
+<li>Enter the data in column x (<kbd>=</kbd> after each value), press <kbd>AC</kbd>, then <kbd>SHIFT</kbd><kbd>1</kbd> (STAT) → <b>Var</b>: <b>n</b>, <b>x̄</b>, <b>σx</b> (population, ÷N), <b>sx</b> (sample, ÷(n−1)). <b>Use sx for a sample</b>; square it for s².</li>
+<li><b>Sum</b> menu: Σx and Σx². These are useful to show the calculational formula on paper.</li>
+<li><b>Frequency column</b> (setup: <kbd>SHIFT</kbd><kbd>MODE</kbd> → STAT → Frequency <b>On</b>). For a pmf table, put x in column X and p(x) in FREQ. Then <b>x̄ = E(X)</b> and <b>σx = σ</b> of the random variable. Check with the dice-difference table: x̄ = 1.9444, σx² = 2.0525. If your unit rejects decimal frequencies, use counts instead (6, 10, 8, 6, 4, 2 out of 36). The answer is the same.</li>
+<li>Check for data: 2, 9, 11, 5, 6 → x̄ = 6.6, sx = 3.5071.</li>
+</ul>
+
+<anchor id="c-ncr"/>
+<h3>5 · Counting and other keys</h3>
+<table class="full">
+<tbody>
+<tr><td><b>nCr</b>: n <kbd>SHIFT</kbd><kbd>÷</kbd> r</td><td>8C3 = 56, 10C4 = 210</td><td><b>nPr</b>: n <kbd>SHIFT</kbd><kbd>×</kbd> r</td><td>5P3 = 60</td></tr>
+<tr><td><b>x!</b>: <kbd>SHIFT</kbd><kbd>x⁻¹</kbd></td><td>5! = 120</td><td><b>eˣ</b>: <kbd>SHIFT</kbd><kbd>ln</kbd></td><td>e^(−3) = 0.049787</td></tr>
+<tr><td><b>Fraction ↔ decimal</b>: <kbd>S⇔D</kbd></td><td>70/36 ↔ 1.9444</td><td><b>Ans / memory</b>: <kbd>STO</kbd> A, <kbd>ALPHA</kbd> A</td><td>store μ, reuse in Var</td></tr>
+</tbody></table>
+<div class="tip">Keep unrounded intermediate values in memory (STO A, B …) and round only the final answer to 4 decimals. The class boards lost accuracy by rounding early, e.g. 0.592 instead of 0.594 for P(X ≤ 3) in B(8, 0.4).</div>
+</section>

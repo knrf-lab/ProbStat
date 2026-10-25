@@ -1,0 +1,108 @@
+<section>
+<anchor id="S1" label="1 · Descriptive Statistics"/>
+<h2 class="sec">1 · Overview &amp; descriptive statistics <span style="font-weight:normal;font-size:10pt">(Sessions 1–2, Devore Ch. 1)</span></h2>
+<anchor id="s1-types"/>
+<div class="two"><div>
+<h3>Vocabulary</h3>
+<ul>
+<li><b>Population</b> <span class="id">(populasi)</span>: all measurements of interest. Size N, mean μ, variance σ². <b>Sample</b> <span class="id">(sampel)</span>: a subset. Size n, mean x̄, variance s².</li>
+<li><b>Variable</b> <span class="id">(variabel: karakteristik / alat ukur)</span> vs <b>data</b> <span class="id">(hasil pengukuran)</span>.</li>
+<li><b>Experimental unit</b>: the object measured (person, light bulb).</li>
+<li>Uni-/bi-/multivariate: 1, 2, or more variables per unit.</li>
+</ul>
+<h3>Types of variables</h3>
+<ul>
+<li><b>Qualitative / categorical</b> <span class="id">(non angka)</span>: gender, major, hair colour, ethnic group. A numeric code (1 = M, 2 = F) is still qualitative, and a student ID is qualitative too.</li>
+<li><b>Quantitative</b> <span class="id">(angka)</span>:
+ <ul><li><b>Discrete</b> <span class="id">(bilangan bulat)</span>: countable values (number of phones, semester, # of units).</li>
+ <li><b>Continuous</b>: any value in an interval (body temperature 36,2°, GPA, time, weight).</li></ul></li>
+</ul>
+</div><div>
+<anchor id="s1-graphs"/>
+<h3>Graphs</h3>
+<ul>
+<li>Qualitative: <b>bar chart</b>, <b>pie chart</b>; frequency table: item | freq | relative freq (= f/n) | percent.</li>
+<li>Quantitative: <b>dotplot</b>, <b>stem-and-leaf</b>, <b>(relative-frequency) histogram</b>, time series (line chart).</li>
+<li>Histogram classes: width ≈ (max − min) / #classes, rounded <b>up</b> to a convenient number. Example: (70 − 26)/6 = 7.33 → width 8, starting at 25.</li>
+</ul>
+<div class="box"><b>Stem-and-leaf</b> <span class="id">(batang-daun)</span>: (1) sort small → large <span class="id">(urutkan)</span>; (2) split into stem | leaf, e.g. tens | ones; (3) give a key, e.g. "6 | 5 = 65" or for 1 decimal: "18 | 6 = 18.6".<br>
+Board example: 17.2, 18.6, 18.8, 18.8, 20.1, 21.3, 23.5 →
+<span class="mono">17|2  18|688  19|  20|1  21|3  22|  23|5</span></div>
+<h3>Shapes <span class="id">(bentuk distribusi)</span></h3>
+<table class="full small"><tbody>
+<tr><td>Mound-shaped, symmetric</td><td>mean ≈ median</td></tr>
+<tr><td><b>Skewed right</b> (long right tail, a few unusually <b>large</b> values)</td><td><b>mean &gt; median</b></td></tr>
+<tr><td><b>Skewed left</b> (long left tail, a few unusually <b>small</b> values)</td><td><b>mean &lt; median</b></td></tr>
+<tr><td>Bimodal</td><td>two local peaks</td></tr>
+</tbody></table>
+</div></div>
+
+<anchor id="s1-mean"/>
+<h3>Measures of centre <span class="id">(ukuran pemusatan)</span></h3>
+<div class="two"><div>
+<p><b>Mean</b>: \(\bar x=\dfrac{\sum x_i}{n}\) (sample); \(\mu=\dfrac{\sum x_i}{N}\) (population)</p>
+<p><b>Median</b>: the middle value after sorting. Its <b>position</b> is \(0.5(n+1)\). If the position ends in .5, average the two neighbours.</p>
+<p><b>Mode</b> <span class="id">(modus)</span>: the most frequent value. A data set can have 2 modes (bimodal) or none.</p>
+</div><div>
+<div class="ex"><span class="t">Example (slides).</span> 2, 4, 9, 8, 6, 5, 3 → sorted 2 3 4 5 6 8 9, position 0.5(8) = 4th → median = 5.<br>
+2, 4, 9, 8, 6, 5 → sorted 2 4 5 6 8 9, position 3.5 → median = (5+6)/2 = 5.5.</div>
+<div class="ex"><span class="t">Robustness (board).</span> 2, 3, 4, 5, 6: x̄ = 4, median 4. Add an extreme value 1000: x̄ = 170, median = 4.5. The median is <b>robust</b> <span class="id">(stabil)</span>, so use it for skewed data.</div>
+</div></div>
+
+<anchor id="s1-var"/>
+<h3>Measures of variability <span class="id">(ukuran penyebaran)</span></h3>
+<div class="two"><div>
+<p><b>Range</b> <span class="id">(jangkauan)</span> R = max − min.</p>
+<div class="box">
+\[\sigma^2=\frac{\sum (x_i-\mu)^2}{N}\quad\text{(population)}\]
+\[s^2=\frac{\sum (x_i-\bar x)^2}{n-1}=\frac{\sum x_i^2-\frac{(\sum x_i)^2}{n}}{n-1}\quad\text{(sample)}\]
+\(s=\sqrt{s^2}\) is always taken positive (≥ 0). It is in the original units, while s² is in squared units.</div>
+<p class="small">We divide by n − 1 for a sample because x̄ is estimated from the same data. This makes s² a better (unbiased) estimate of σ².</p>
+</div><div>
+<div class="ex"><span class="t">Example (slides): petals 5, 12, 6, 8, 14.</span><br>
+n = 5, Σx = 45, x̄ = 9, Σx² = 25+144+36+64+196 = 465<br>
+\(s^2=\dfrac{465-45^2/5}{4}=\dfrac{465-405}{4}=15\), \(s=3.873\). Range = 14 − 5 = 9.</div>
+<div class="calc">STAT 1-VAR: enter 5, 12, 6, 8, 14 → sx = 3.8730 → sx² = 15. Do <b>not</b> use σx (= 3.4641) for a sample.</div>
+<p><b>Range approximation</b>: R ≈ 4s to 6s, so s ≈ R/4 (a rough check).</p>
+</div></div>
+
+<anchor id="s1-cheb"/>
+<h3>Chebyshev (Tchebysheff) vs the Empirical rule</h3>
+<div class="two"><div class="box">
+<b>Chebyshev, any shape</b>: at least \(1-\dfrac{1}{k^2}\) of the values lie within k SDs of the mean (k ≥ 1).<br>
+k = 2 → at least 3/4 = 75%; k = 3 → at least 8/9 ≈ 88.9%.<br>
+To find k: \(k=\dfrac{\text{distance from mean}}{s}\).</div>
+<div class="box">
+<b>Empirical rule, mound-shaped only</b>: about 68% within μ ± σ, 95% within μ ± 2σ, 99.7% within μ ± 3σ.<br>
+Tails: P(above μ + 2σ) ≈ 2.5%; P(above μ + σ) ≈ 16%.</div></div>
+<div class="ex"><span class="t">Example (slides).</span> Task time: mean 12.8 min, SD 1.7, mound-shaped. Proportion longer than 16.2 min? 16.2 = 12.8 + 2(1.7) is 2 SDs above, so ≈ (1 − 0.95)/2 = <b>0.025</b>.</div>
+
+<anchor id="s1-z"/>
+<h3>Relative standing</h3>
+<p><b>z-score</b>: \(z=\dfrac{x-\bar x}{s}\). |z| ≤ 2 is not unusual; |z| &gt; 3 suggests an outlier. <b>p-th percentile</b>: p% of the values lie below it.</p>
+
+<anchor id="s1-quart"/>
+<h3>Quartiles, IQR, five-number summary, box plot</h3>
+<div class="two"><div>
+<div class="box">
+After sorting: position of \(Q_1 = 0.25(n+1)\), median \(= 0.5(n+1)\), \(Q_3 = 0.75(n+1)\). If a position is fractional, <b>interpolate</b>: value at 4.75 = x₍₄₎ + 0.75(x₍₅₎ − x₍₄₎).<br>
+\(IQR=Q_3-Q_1\)<br>
+<b>Fences</b> <span class="id">(batas)</span>: LL = \(Q_1-1.5\,IQR\), UL = \(Q_3+1.5\,IQR\). Points beyond them are <b>outliers</b>, marked *.<br>
+<b>Five-number summary</b>: Min, Q1, Median (Q2), Q3, Max.</div>
+<p><b>Box plot</b>: box from Q1 to Q3 with a line at the median. Whiskers go to the most extreme values that are <i>not</i> outliers.<br>
+Median left of centre and a long right whisker means skewed right. Median right of centre and a long left whisker means skewed left.</p>
+</div><div>
+<div class="ex"><span class="t">Example (slides): shoe prices, n = 18</span><br>
+<span class="small">40 60 65 65 65 68 68 70 70 70 70 70 70 74 75 75 90 95</span><br>
+Q1 position = 0.25(19) = 4.75 → 65 + 0.75(65 − 65) = <b>65</b><br>
+Q3 position = 0.75(19) = 14.25 → x₍₁₄₎ + 0.25(x₍₁₅₎ − x₍₁₄₎) = 74 + 0.25(75 − 74) = <b>74.25</b><br>
+Median at 9.5 → 70. IQR = 9.25; fences 51.125 and 88.125 → <b>40, 90 and 95 are outliers</b>.<br>
+<span class="small">(The slide gets 75.25 because its sorted list leaves out the 40. Use your own sorted list and count positions carefully.)</span></div>
+<div class="ex"><span class="t">Example (slides): sodium in 8 cheeses</span><br>
+260 290 300 320 330 340 340 520<br>
+Q1 position 2.25 → 290 + 0.25(10) = 292.5; Q3 position 6.75 → 340 + 0.75(0) = 340<br>
+IQR = 47.5; LL = 292.5 − 71.25 = 221.25; UL = 340 + 71.25 = 411.25<br>
+→ <b>520 is an outlier</b>. The upper whisker stops at 340.</div>
+</div></div>
+<div class="warn">Different textbooks and calculators use different quartile rules. In the exam, use the <b>0.25(n+1)</b> rule from the slides and show the position you computed.</div>
+</section>

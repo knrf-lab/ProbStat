@@ -1,0 +1,57 @@
+<section>
+<anchor id="D" label="D · Distribution Picker &amp; Formula Table"/>
+<h2 class="sec">D · Distribution picker</h2>
+<div class="flow">
+<div class="q2">Is X a COUNT (0, 1, 2, …) or a MEASUREMENT (time, weight, length, score)?</div>
+<div class="two" style="margin-top:2mm">
+<div>
+<div class="arrow"><b>COUNT</b> = discrete</div>
+<div class="node"><b>Is there a fixed number of trials n?</b>
+<ul>
+<li><b>Yes, n trials, each success/failure, same p, independent</b> (with replacement, or a huge population)<br>→ <b>Binomial B(n, p)</b> · {{p:s3-binom}}</li>
+<li><b>Yes, but drawn without replacement from a small lot</b> of N items, M of them "successes"<br>→ <b>Hypergeometric</b> · {{p:s3-hyper}}<br><span class="small">Rule of thumb: if n/N ≤ 0.05 the Binomial is a fine approximation.</span></li>
+</ul>
+<b>No fixed n, counting events in an interval</b> of time/space at an average rate<br>→ <b>Poisson(λ)</b> · {{p:s3-pois}}
+<ul><li>λ must match the interval asked: 4 per hour → λ = 2 per 30 min.</li></ul>
+<b>Counting trials until the 1st (or r-th) success</b><br>→ <b>Geometric / Negative Binomial</b> · {{p:s3-geo}}
+<br><br><b>A small custom experiment</b> (dice, coins, a given table)<br>→ build the pmf table yourself · {{p:s3-pmf}}
+</div>
+</div>
+<div>
+<div class="arrow"><b>MEASUREMENT</b> = continuous</div>
+<div class="node">
+<b>A formula f(x) is given</b><br>→ general pdf: integrate · {{p:s4-pdf}}<br><br>
+<b>"Equally likely anywhere between A and B"</b> / "seragam"<br>→ <b>Uniform[A, B]</b> · {{p:s4-unif}}<br><br>
+<b>Bell-shaped, given mean and variance (or SD)</b>; heights, weights, thicknesses, scores<br>→ <b>Normal N(μ, σ²)</b> · {{p:s5-z}}<br><br>
+<b>Waiting time / lifetime / time between events</b>, x ≥ 0, "rata-rata waktu …"<br>→ <b>Exponential(λ)</b>, λ = 1/mean · {{p:s6-exp}}<br><br>
+<b>Binomial with large n</b> (np ≥ 5, n(1−p) ≥ 5) and no table/calculator support<br>→ <b>Normal approximation</b> with continuity correction · {{p:s5-approx}}
+</div>
+</div></div></div>
+
+<h3>Master formula table</h3>
+<table class="full small">
+<thead><tr><th>Distribution</th><th>pmf / pdf</th><th>Range</th><th>Mean E(X)</th><th>Variance V(X)</th><th>Calculator</th></tr></thead>
+<tbody>
+<tr><td><b>Binomial</b> B(n, p)</td><td>\(\binom{n}{x}p^x(1-p)^{n-x}\)</td><td>0,1,…,n</td><td>\(np\)</td><td>\(np(1-p)\)</td><td>Binomial PD / CD</td></tr>
+<tr><td><b>Poisson</b>(λ)</td><td>\(\dfrac{e^{-\lambda}\lambda^x}{x!}\)</td><td>0,1,2,…</td><td>\(\lambda\)</td><td>\(\lambda\)</td><td>Poisson PD / CD</td></tr>
+<tr><td><b>Hypergeometric</b> h(x; n, M, N)</td><td>\(\dfrac{\binom{M}{x}\binom{N-M}{n-x}}{\binom{N}{n}}\)</td><td>max(0, n−N+M) … min(n, M)</td><td>\(n\dfrac{M}{N}\)</td><td>\(n\dfrac{M}{N}\Big(1-\dfrac{M}{N}\Big)\dfrac{N-n}{N-1}\)</td><td>nCr</td></tr>
+<tr><td><b>Geometric</b> (trial # of 1st success)</td><td>\((1-p)^{x-1}p\)</td><td>1,2,…</td><td>\(1/p\)</td><td>\((1-p)/p^2\)</td><td>by hand</td></tr>
+<tr><td><b>Neg. Binomial</b> (failures before r-th success, Devore)</td><td>\(\binom{x+r-1}{r-1}p^r(1-p)^x\)</td><td>0,1,2,…</td><td>\(r(1-p)/p\)</td><td>\(r(1-p)/p^2\)</td><td>nCr</td></tr>
+<tr><td><b>Uniform</b>[A, B]</td><td>\(\dfrac{1}{B-A}\)</td><td>A ≤ x ≤ B</td><td>\(\dfrac{A+B}{2}\)</td><td>\(\dfrac{(B-A)^2}{12}\)</td><td>by hand</td></tr>
+<tr><td><b>Normal</b> N(μ, σ²)</td><td>\(\dfrac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac12\left(\frac{x-\mu}{\sigma}\right)^2}\)</td><td>(−∞, ∞)</td><td>\(\mu\)</td><td>\(\sigma^2\)</td><td>Normal CD / Inverse</td></tr>
+<tr><td><b>Exponential</b>(λ)</td><td>\(\lambda e^{-\lambda x}\)</td><td>x ≥ 0</td><td>\(1/\lambda\)</td><td>\(1/\lambda^2\)</td><td>\(e^x\) key</td></tr>
+</tbody></table>
+<div class="two">
+<div class="box"><b>CDFs you can write directly</b><br>
+Uniform: \(F(x)=\dfrac{x-A}{B-A}\), A ≤ x ≤ B<br>
+Exponential: \(F(x)=1-e^{-\lambda x}\), so \(\P(X&gt;x)=e^{-\lambda x}\)<br>
+Normal: \(F(x)=\Phi\!\left(\dfrac{x-\mu}{\sigma}\right)\) (z-table)<br>
+Binomial / Poisson: sum the pmf, or use the tables / CD</div>
+<div class="box"><b>Rules for any X</b><br>
+\(\E(aX+b)=a\E(X)+b\)<br>
+\(\Var(aX+b)=a^2\Var(X)\) (the +b disappears!)<br>
+\(\Var(X)=\E(X^2)-[\E(X)]^2\)<br>
+\(\sigma=\sqrt{\Var(X)}\) (always ≥ 0)<br>
+Continuous: \(\P(X=a)=0\) so ≤ and &lt; are the same</div>
+</div>
+</section>

@@ -1,0 +1,126 @@
+<section>
+<anchor id="S2" label="2 · Probability"/>
+<h2 class="sec">2 · Probability <span style="font-weight:normal;font-size:10pt">(Sessions 3–4, Devore Ch. 2)</span></h2>
+<anchor id="s2-sets"/>
+<div class="two"><div>
+<h3>Sample spaces and events</h3>
+<ul>
+<li><b>Experiment</b> <span class="id">(percobaan)</span>: a process that produces an outcome. <b>Sample space S</b> <span class="id">(ruang sampel)</span>: the set of all simple outcomes.</li>
+<li><b>Event</b> <span class="id">(kejadian)</span>: a subset of S, written with a capital letter.</li>
+<li>\(A\cup B\): A or B or both <span class="id">(gabungan)</span>. \(A\cap B\): both <span class="id">(irisan)</span>. \(A^c\) (also A′): not A <span class="id">(komplemen)</span>.</li>
+<li><b>Mutually exclusive</b> <span class="id">(saling lepas)</span>: \(A\cap B=\emptyset\), so P(A ∩ B) = 0.</li>
+<li>De Morgan: \((A\cup B)^c=A^c\cap B^c\), \((A\cap B)^c=A^c\cup B^c\).</li>
+</ul>
+</div><div>
+<anchor id="s2-axioms"/>
+<h3>Axioms and basic rules</h3>
+<div class="box">
+1. \(\P(A)\ge 0\) · 2. \(\P(S)=1\) · 3. If \(A_1, A_2,\dots\) are mutually exclusive: \(\P(\cup A_i)=\sum \P(A_i)\)<br>
+→ \(0\le \P(A)\le 1\), \(\P(\emptyset)=0\), \(\P(A^c)=1-\P(A)\)<br>
+<b>Equally likely outcomes:</b> \(\P(A)=\dfrac{n(A)}{n(S)}\)</div>
+<p><b>Relative-frequency interpretation</b>: P(A) is the long-run proportion n(A)/n as n → ∞.</p>
+<div class="ex"><span class="t">Board:</span> n(S) = 100 people, n(A) = 25 wear glasses → P(A) = 25/100 = 0.25.</div>
+</div></div>
+
+<anchor id="s2-union"/>
+<h3>Addition rule, complement, "at least one"</h3>
+<div class="two"><div class="box">
+\[\P(A\cup B)=\P(A)+\P(B)-\P(A\cap B)\]
+Mutually exclusive: \(\P(A\cup B)=\P(A)+\P(B)\)<br>
+Three events: \(\P(A\cup B\cup C)=\P(A)+\P(B)+\P(C)-\P(AB)-\P(AC)-\P(BC)+\P(ABC)\)</div>
+<div class="box"><b>"At least one" <span class="id">(sedikitnya satu)</span></b>: \(\P(\ge 1)=1-\P(\text{none})\)<br>
+If the trials are independent with success prob p each: \(1-(1-p)^n\).<br>
+Example: 3 independent alarms each detect with 0.85: \(1-0.15^3=0.9966\).</div></div>
+<div class="ex"><span class="t">Example (slides): 120 students.</span> A = Javanese (50), B = female (60), both = 30. \(\P(A\cup B)=\frac{50+60-30}{120}=\frac{80}{120}=\frac23\).</div>
+
+<anchor id="s2-count"/>
+<h3>Counting techniques</h3>
+<table class="full">
+<thead><tr><th>Situation</th><th>Formula</th><th>Example</th></tr></thead>
+<tbody>
+<tr><td><b>mn rule</b> (product rule): k stages with n₁, n₂, … ways</td><td>\(n_1n_2\cdots n_k\)</td><td>Toss 2 dice: 6 × 6 = 36. Three coins: 2³ = 8.</td></tr>
+<tr><td><b>Permutation</b>: choose r of n, <b>order matters</b> (arrange, rank, code, president/secretary)</td><td>\(P^n_r=\dfrac{n!}{(n-r)!}\)</td><td>3-digit lock code from {1,2,3,4}, no repeats: 4P3 = 24. Arrange 5 parts: 5! = 120.</td></tr>
+<tr><td><b>Combination</b>: choose r of n, <b>order does not matter</b> (committee, hand, sample)</td><td>\(C^n_r=\binom{n}{r}=\dfrac{n!}{r!(n-r)!}\)</td><td>3 of 5 people for a subcommittee: 5C3 = 10.</td></tr>
+<tr><td>With repetition allowed, order matters</td><td>\(n^r\)</td><td>4-digit PIN: 10⁴</td></tr>
+<tr><td>Arrange n objects with identical groups n₁, n₂, …</td><td>\(\dfrac{n!}{n_1!\,n_2!\cdots}\)</td><td>"STATISTIK": 9!/(2!·3!·2!) for S, T, I</td></tr>
+</tbody></table>
+<div class="ex"><span class="t">Example (slides): box of 6 M&amp;Ms, 4 red and 2 green, choose 2.</span> P(exactly one red) = \(\dfrac{\binom41\binom21}{\binom62}=\dfrac{8}{15}=0.5333\). Order does not matter, so use combinations in both the numerator and the denominator.</div>
+<div class="tip">To decide between a permutation and a combination, ask: "If I swap two chosen items, is it a different result?" If yes, it is a permutation. If no, it is a combination.</div>
+
+<div style="break-before:page"></div><anchor id="s2-table"/>
+<h3>Contingency tables: joint, marginal, conditional <span class="id">(tabel kontingensi)</span></h3>
+<p>This was the most-practised type on the class boards. Always write the table <b>with totals</b> first.</p>
+<div class="two"><div>
+<table class="full">
+<thead><tr><th>Age \ Health insurance</th><th>Yes</th><th>No</th><th>Total</th></tr></thead>
+<tbody>
+<tr><th>18–34</th><td>750</td><td>170</td><td>920</td></tr>
+<tr><th>35 &amp; older</th><td>950</td><td>130</td><td>1080</td></tr>
+<tr><th>Total</th><td>1700</td><td>300</td><td>2000</td></tr>
+</tbody></table>
+<div class="box small">
+<b>Joint</b> (cell ÷ grand total): \(\P(18\text{–}34\cap \text{Yes})=750/2000=0.375\)<br>
+<b>Marginal</b> (row or column total ÷ grand total): \(\P(\text{No})=300/2000=0.15\), \(\P(18\text{–}34)=920/2000=0.46\)<br>
+<b>Conditional</b> (cell ÷ total of the <i>given</i> row or column):<br>
+\(\P(\text{No}\mid 18\text{–}34)=170/920=0.1848\)<br>
+\(\P(\text{No}\mid 35+)=130/1080=0.1204\)<br>
+\(\P(18\text{–}34\mid \text{No})=170/300=0.5667\)</div>
+</div><div>
+<div class="box"><b>Reading P( ⋯ | ⋯ )</b>: the left side is what is asked <span class="id">(ditanya / dicari)</span>. The right side is what is known, the condition <span class="id">(diketahui / syarat)</span>.<br>
+The denominator is always the total of the <b>condition</b>.</div>
+<div class="ex"><span class="t">Sports example (class, Anderson p.191, millions)</span><br>
+Walking: M 28.7, F 57.7, total 86.4. All: M 123.3, F 161.8, total 285.1.<br>
+P(walking) = 86.4/285.1 = 0.3031<br>
+P(walking | female) = 57.7/161.8 = 0.3566<br>
+P(woman | walker) = 57.7/86.4 = 0.6678. This is <b>conditional</b>, not joint.<br>
+P(woman ∩ walker) = 57.7/285.1 = 0.2024</div>
+<div class="tip">Independence test from a table: compare \(\P(\text{No}\mid 18\text{–}34)=0.1848\) with \(\P(\text{No})=0.15\). They differ, so age and insurance are <b>not independent</b>.</div>
+</div></div>
+</section>
+
+<section>
+<anchor id="s2-cond"/>
+<h3>Conditional probability <span class="id">(peluang bersyarat)</span></h3>
+<div class="two"><div class="box">
+\[\P(A\mid B)=\frac{\P(A\cap B)}{\P(B)},\qquad \P(B)&gt;0\]
+\(\P(A\mid B)\ne \P(B\mid A)\) in general, but \(\P(A\cap B)=\P(B\cap A)\).<br>
+\(\P(A^c\mid B)=1-\P(A\mid B)\)</div>
+<div class="ex"><span class="t">Example (slides): 5 M&amp;Ms, 2 red and 3 blue, draw 2 without replacement.</span><br>
+P(2nd red | 1st blue) = 2/4 = 1/2; P(2nd red | 1st red) = 1/4. The answer depends on the 1st draw, so the events are <b>dependent</b>.</div></div>
+
+<anchor id="s2-indep"/>
+<h3>Independence <span class="id">(saling bebas)</span> vs mutually exclusive <span class="id">(saling lepas)</span></h3>
+<div class="two"><div class="box">
+A and B are <b>independent</b> if any one of these holds (then all do):<br>
+1. \(\P(A\mid B)=\P(A)\) · 2. \(\P(B\mid A)=\P(B)\) · 3. \(\P(A\cap B)=\P(A)\P(B)\)<br>
+If A and B are independent, so are \(A^c\) and \(B\), \(A\) and \(B^c\), and \(A^c\) and \(B^c\).</div>
+<div class="warn">Mutually exclusive events with P(A), P(B) &gt; 0 are <b>never</b> independent: P(A ∩ B) = 0 ≠ P(A)P(B). "Saling lepas" is about overlap. "Saling bebas" is about one event giving no information about the other.</div></div>
+
+<anchor id="s2-mult"/>
+<h3>Multiplication rule</h3>
+<div class="two"><div class="box">
+\(\P(A\cap B)=\P(A)\,\P(B\mid A)=\P(B)\,\P(A\mid B)\)<br>
+Independent: \(\P(A\cap B)=\P(A)\P(B)\)<br>
+Chain: \(\P(A\cap B\cap C)=\P(A)\P(B\mid A)\P(C\mid A\cap B)\)</div>
+<div class="ex"><span class="t">Example (slides):</span> 10% high-risk. 3 people: P(exactly one high-risk) = HNN + NHN + NNH = 3(0.1)(0.9)² = <b>0.243</b>. This is the Binomial B(3, 0.1) at x = 1.<br>
+49% female, P(H | F) = 0.08 → P(H ∩ F) = 0.49 × 0.08 = <b>0.0392</b>.</div></div>
+
+<anchor id="s2-total"/>
+<h3>Law of total probability</h3>
+<div class="two"><div class="box">
+If \(B_1,\dots,B_k\) are mutually exclusive and exhaustive (a partition: exactly one happens):
+\[\P(A)=\sum_{i=1}^k \P(B_i)\,\P(A\mid B_i)\]
+Draw a <b>tree</b>: the first branches are \(B_i\) with \(\P(B_i)\), the second branches are A | \(B_i\). Multiply along each path, then add the paths that end in A.</div>
+<div>
+<anchor id="s2-bayes"/>
+<div class="box"><b>Bayes' rule</b>
+\[\P(B_j\mid A)=\frac{\P(B_j)\,\P(A\mid B_j)}{\sum_i \P(B_i)\,\P(A\mid B_i)}=\frac{\text{the one path}}{\text{all paths to }A}\]
+Prior \(\P(B_j)\) → posterior \(\P(B_j\mid A)\) after observing A.</div></div></div>
+<div class="ex"><span class="t">Example (slides): heart attack risk.</span> P(F) = 0.49, P(M) = 0.51, P(H | F) = 0.08, P(H | M) = 0.12. A randomly selected person is high-risk. P(male)?<br>
+P(H) = 0.49(0.08) + 0.51(0.12) = 0.0392 + 0.0612 = 0.1004<br>
+\(\P(M\mid H)=\dfrac{0.0612}{0.1004}=\mathbf{0.6096}\); \(\P(F\mid H)=0.3904\). Check: the two add to 1.</div>
+<div class="ex"><span class="t">Template: machines.</span> Machines A, B, C make 50%, 30%, 20% of the output, with defect rates 2%, 3%, 5%.<br>
+P(D) = 0.5(0.02) + 0.3(0.03) + 0.2(0.05) = 0.010 + 0.009 + 0.010 = 0.029<br>
+P(C | D) = 0.010/0.029 = 0.3448 · P(B | D) = 0.3103 · P(A | D) = 0.3448</div>
+<div class="tip">Bayes in a table: build a table of joint probabilities, \(\P(B_i)\P(A\mid B_i)\) for A and for \(A^c\). Then every posterior is "cell ÷ column total", exactly like the contingency tables above.</div>
+</section>
