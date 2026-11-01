@@ -1,0 +1,63 @@
+<section>
+<anchor id="M" label="M · Practice Midterm"/>
+<h2 class="sec">M · Practice Midterm: Probabilitas &amp; Statistika</h2>
+<div class="box small"><b>Format</b>: same order and style as Quiz 1. Questions 1–6 are the core (about 90 minutes). Questions 7–8 are bonus questions on sessions 9–12, which Quiz 1 did not test. Open binder, calculator allowed. <b>Do not look at the answers ({{p:MK}}) until you finish.</b></div>
+
+<div class="qbox"><span class="qn">1. Variabel dan skala pengukuran</span> <span class="pts">[12]</span><br>
+Seorang mahasiswa Computer Engineering meneliti kinerja jaringan IoT di sebuah gedung pintar. Variabel yang dicatat: <b>merek router, bandwidth (Mbps), latensi (ms), jumlah perangkat yang terhubung, kualitas sinyal (lemah/sedang/kuat), suhu ruang server (°C), status koneksi (terhubung/terputus), tingkat kepuasan pengguna (skala 1–5), packet loss (%), tahun pembuatan perangkat, nomor port, sisa daya baterai sensor (%)</b>. Tentukan jenis variabel dan skala pengukuran masing-masing variabel, beserta alasannya.
+<div class="en">For each of the 12 variables, give the type, the measurement scale, and a one-line reason.</div></div>
+
+<div class="qbox"><span class="qn">2. Statistika deskriptif</span> <span class="pts">[20]</span><br>
+Latensi jaringan (ms) diukur pada 15 waktu berbeda:<br>
+<p style="text-align:center"><b>12, 15, 11, 48, 14, 13, 16, 12, 18, 15, 14, 52, 13, 17, 15</b></p>
+<ol><li>Hitung mean, median, dan modus.</li>
+<li>Tentukan five number summary dan IQR.</li>
+<li>Hitung varians dan standar deviasi sampel.</li>
+<li>Hitung coefficient of variation.</li>
+<li>Buatlah diagram stem and leaf.</li>
+<li>Gambarkan boxplot dan identifikasi outlier.</li>
+<li>Router kedua memiliki rata-rata latensi 30 ms dengan standar deviasi 3 ms. Router mana yang lebih stabil? Jelaskan dengan CV.</li>
+<li>Hapus outlier, lalu hitung kembali mean dan CV. Apa yang dapat disimpulkan?</li></ol>
+<div class="en">(a) Mean, median, mode. (b) Five-number summary, IQR. (c) Sample variance and SD. (d) CV. (e) Stem-and-leaf. (f) Boxplot and outliers. (g) A second router: mean 30 ms, SD 3 ms. Which is more stable? Use CV. (h) Remove the outliers and recompute the mean and CV.</div></div>
+
+<div class="qbox"><span class="qn">3. Tabel kontingensi</span> <span class="pts">[16]</span><br>
+Kualitas koneksi 160 router dari tiga merek dicatat sebagai berikut:
+<table class="small"><thead><tr><th>Merek</th><th>Stabil</th><th>Kadang putus</th><th>Sering putus</th></tr></thead><tbody>
+<tr><th>A</th><td>45</td><td>10</td><td>5</td></tr><tr><th>B</th><td>30</td><td>20</td><td>10</td></tr><tr><th>C</th><td>15</td><td>10</td><td>15</td></tr></tbody></table>
+<ol><li>Peluang router bermerek B dan sering putus.</li>
+<li>Peluang router bermerek A atau sering putus.</li>
+<li>Jika diketahui router sering putus, berapa peluang router tersebut bermerek C?</li>
+<li>Jika diketahui router bermerek B, berapa peluang router tersebut kadang putus?</li>
+<li>Jika diketahui router stabil, berapa peluang router tersebut bermerek A?</li>
+<li>Apakah merek router dan kualitas koneksi saling independen? Tunjukkan perhitungannya.</li>
+<li>Sebuah router yang sering putus dipilih secara acak. Merek apa yang paling mungkin?</li></ol>
+<div class="en">(a) P(B and often drops). (b) P(A or often drops). (c) P(C | often drops). (d) P(sometimes drops | B). (e) P(A | stable). (f) Independent? Show the calculation. (g) A router that often drops: which brand is most likely?</div></div>
+</section>
+
+<section>
+<div class="qbox"><span class="qn">4. Distribusi Binomial</span> <span class="pts">[14]</span><br>
+Sebuah pabrik chip mengetahui bahwa 10% chip yang diproduksi cacat. Seorang teknisi memilih 15 chip secara acak. Hitunglah peluang:
+<ol><li>tepat 2 chip cacat</li><li>paling banyak 1 chip cacat</li><li>setidaknya 3 chip cacat</li><li>banyaknya chip cacat berada dari 1 hingga 3</li><li>sedikitnya satu chip cacat</li><li>Tentukan rata-rata dan standar deviasi banyaknya chip cacat.</li></ol>
+<div class="en">10% of chips are defective; 15 chosen at random. (a) exactly 2 (b) at most 1 (c) at least 3 (d) from 1 to 3 (e) at least one (f) mean and SD.</div></div>
+
+<div class="qbox"><span class="qn">5. Distribusi Poisson</span> <span class="pts">[14]</span><br>
+Sebuah web server menerima rata-rata 6 permintaan (request) per menit. Hitunglah peluang:
+<ol><li>tepat 4 request dalam 1 menit</li><li>paling banyak 2 request dalam 1 menit</li><li>setidaknya 2 request dalam 1 menit</li><li>tidak ada request selama 20 detik</li><li>setidaknya 1 request selama 30 detik</li><li>Tentukan rata-rata dan standar deviasi banyaknya request per menit.</li></ol>
+<div class="en">On average 6 requests per minute. (a) exactly 4 in a minute (b) at most 2 (c) at least 2 (d) none in 20 seconds (e) at least 1 in 30 seconds (f) mean and SD per minute.</div></div>
+
+<div class="qbox"><span class="qn">6. Distribusi Normal</span> <span class="pts">[14]</span><br>
+Daya tahan baterai sebuah perangkat IoT berdistribusi normal dengan rata-rata 120 menit dan varians 64 menit². Hitunglah:
+<ol><li>peluang baterai bertahan kurang dari 110 menit</li><li>peluang baterai bertahan antara 114 dan 130 menit</li><li>peluang baterai bertahan lebih dari 136 menit</li><li>daya tahan minimum agar sebuah baterai termasuk 5% baterai terbaik</li><li>batas waktu sehingga 90% baterai sudah habis pada waktu tersebut atau lebih cepat</li></ol>
+<div class="en">Battery life ~ Normal, mean 120 min, variance 64. (a) P(X &lt; 110) (b) P(114 &lt; X &lt; 130) (c) P(X &gt; 136) (d) the minimum life to be in the best 5% (e) the time by which 90% of batteries have run out.</div></div>
+
+<div class="qbox"><span class="qn">7. (Bonus) Variabel random kontinu</span> <span class="pts">[+5]</span><br>
+Diketahui \(f(x)=\begin{cases}k(4-x) & 0\le x\le 4\\ 0 & x\text{ lainnya}\end{cases}\), dengan X = waktu respons sensor (detik).
+<ol><li>Tentukan k agar f(x) merupakan pdf, lalu buktikan.</li><li>Hitung P(X ≤ 1), P(1 &lt; X &lt; 3), dan P(X &gt; 2).</li><li>Tentukan fungsi kumulatif F(x).</li><li>Hitung μ dan σ².</li><li>Tentukan median.</li></ol>
+<div class="en">(a) Find k and prove f is a pdf. (b) P(X ≤ 1), P(1 &lt; X &lt; 3), P(X &gt; 2). (c) The cdf. (d) μ and σ². (e) The median.</div></div>
+
+<div class="qbox"><span class="qn">8. (Bonus) Distribusi eksponensial</span> <span class="pts">[+5]</span><br>
+Waktu antar kegagalan sebuah hard disk berdistribusi eksponensial dengan rata-rata 200 jam. Hitunglah:
+<ol><li>peluang gagal sebelum 100 jam</li><li>peluang bertahan lebih dari 300 jam</li><li>peluang gagal antara 150 dan 250 jam</li><li>peluang bertahan lebih dari 500 jam jika diketahui sudah bertahan 200 jam</li><li>median waktu kegagalan</li><li>waktu sehingga 90% hard disk sudah gagal</li></ol>
+<div class="en">Exponential, mean 200 h. (a) P(X &lt; 100) (b) P(X &gt; 300) (c) P(150 &lt; X &lt; 250) (d) P(X &gt; 500 | X &gt; 200) (e) the median (f) the time by which 90% have failed.</div></div>
+<p style="text-align:center"><b>— Selesai —</b> Core 90 points + bonus 10.</p>
+</section>

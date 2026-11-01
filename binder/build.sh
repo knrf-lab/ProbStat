@@ -6,6 +6,7 @@ export PYTHONPATH=/projects/sandbox/.pylib
 CHROME=$(find /root/.cache/puppeteer/chrome -name chrome -type f -path "*chrome-linux64*" | head -1)
 mkdir -p dist /projects/sandbox/.build/home
 python3 gen_tables.py
+python3 gen_svg.py
 rm -f dist/pages.json
 for pass in 1 2; do
   node build.js
@@ -13,6 +14,6 @@ for pass in 1 2; do
     --disable-crash-reporter --disable-dev-shm-usage --user-data-dir=/projects/sandbox/.build/profile \
     --no-pdf-header-footer --virtual-time-budget=5000 \
     --print-to-pdf=dist/raw.pdf "file://$PWD/dist/binder.html" 2>/dev/null
-  python3 stamp.py dist/raw.pdf "ProbStat_OpenBook_Binder.pdf"
+  python3 stamp.py dist/raw.pdf "ProbStat_OpenBook_Binder_v2.pdf"
 done
 rm -f dist/raw.pdf

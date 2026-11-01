@@ -6,7 +6,7 @@
 @page { size: A4; margin: 13mm 13mm 16mm 18mm; } /* wider left margin for binder holes */
 * { box-sizing: border-box; }
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-body { font-family: "Noto Sans", "DV", sans-serif; font-size: 9.6pt; line-height: 1.38; color: #111; margin: 0; }
+body { font-family: "Noto Sans", "DV", sans-serif; font-size: 10pt; line-height: 1.45; color: #111; margin: 0; }
 .katex { font-size: 1.07em; }
 .katex-display { margin: 0.35em 0; }
 h1 { font-size: 22pt; margin: 0 0 4mm; }
@@ -76,3 +76,26 @@ table.ptab tbody tr:nth-child(5n) td { border-bottom: 2px solid #333; }
 
 table.idx { break-inside: auto; }
 table.idx tr { break-inside: avoid; }
+
+/* ---- v2 additions ---- */
+.qbox { border: 1.4px solid #1f3b63; border-radius: 1.5mm; padding: 2mm 3mm; margin: 2mm 0 2.5mm; background: #f9fbfe; break-inside: avoid; }
+.qbox .qn { font-weight: bold; color: #1f3b63; font-size: 10.8pt; }
+.qbox ol { list-style: lower-alpha; margin-bottom: 0.5mm; }
+.qbox .en { color: #555; font-size: 8.9pt; font-style: italic; margin-top: 1mm; }
+.part { display: grid; grid-template-columns: 17mm 1fr; column-gap: 2.5mm; row-gap: 0.6mm; margin: 1.6mm 0 2.6mm; padding: 1.4mm 2.4mm; border-left: 3px solid #1f3b63; background: #fcfcfc; break-inside: avoid; }
+.part > .lab { font-weight: bold; color: #1f3b63; font-size: 8.6pt; text-transform: uppercase; letter-spacing: 0.2px; padding-top: 0.4mm; }
+.part > .h { grid-column: 1 / span 2; font-weight: bold; font-size: 10.2pt; margin-bottom: 0.4mm; }
+.part > .lab.bad { color: #b3261e; }
+.part > .lab.ok { color: #2e7d32; }
+.solhead { font-size: 12pt; font-weight: bold; color: #fff; background: #3b5f8f; padding: 1.2mm 3mm; border-radius: 1.2mm; margin: 4mm 0 1.5mm; break-after: avoid; }
+.given { background: #eef3fa; border-radius: 1.2mm; padding: 1.2mm 2.6mm; margin: 1.2mm 0; break-inside: avoid; }
+.stem { font-family: "DVM", monospace; font-size: 9.6pt; line-height: 1.35; white-space: pre; background: #fff; border: 1px solid #aaa; padding: 1.2mm 3mm; display: inline-block; margin: 1mm 0; }
+img.bp { width: 100%; max-width: 135mm; display: block; margin: 1mm 0; }
+.contents td { padding: 0.9mm 2mm; }
+.contents td:first-child { font-weight: bold; width: 10mm; text-align: center; color: #1f3b63; }
+.contents td:last-child { width: 14mm; text-align: center; }
+.compact li { margin: 0.1mm 0; }
+.contents td { padding: 0.5mm 2mm; }
+table.idx { font-size: 9pt; }
+table.idx td { padding: 0.45mm 1.4mm; }
+.gloss table td { padding: 0.35mm 1.4mm; font-size: 8.9pt; }

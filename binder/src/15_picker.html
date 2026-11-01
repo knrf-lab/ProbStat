@@ -1,57 +1,63 @@
 <section>
 <anchor id="D" label="D · Distribution Picker &amp; Formula Table"/>
 <h2 class="sec">D · Distribution picker</h2>
-<div class="flow">
-<div class="q2">Is X a COUNT (0, 1, 2, …) or a MEASUREMENT (time, weight, length, score)?</div>
-<div class="two" style="margin-top:2mm">
-<div>
-<div class="arrow"><b>COUNT</b> = discrete</div>
-<div class="node"><b>Is there a fixed number of trials n?</b>
-<ul>
-<li><b>Yes, n trials, each success/failure, same p, independent</b> (with replacement, or a huge population)<br>→ <b>Binomial B(n, p)</b> · {{p:s3-binom}}</li>
-<li><b>Yes, but drawn without replacement from a small lot</b> of N items, M of them "successes"<br>→ <b>Hypergeometric</b> · {{p:s3-hyper}}<br><span class="small">Rule of thumb: if n/N ≤ 0.05 the Binomial is a fine approximation.</span></li>
-</ul>
-<b>No fixed n, counting events in an interval</b> of time/space at an average rate<br>→ <b>Poisson(λ)</b> · {{p:s3-pois}}
-<ul><li>λ must match the interval asked: 4 per hour → λ = 2 per 30 min.</li></ul>
-<b>Counting trials until the 1st (or r-th) success</b><br>→ <b>Geometric / Negative Binomial</b> · {{p:s3-geo}}
-<br><br><b>A small custom experiment</b> (dice, coins, a given table)<br>→ build the pmf table yourself · {{p:s3-pmf}}
-</div>
-</div>
-<div>
-<div class="arrow"><b>MEASUREMENT</b> = continuous</div>
-<div class="node">
-<b>A formula f(x) is given</b><br>→ general pdf: integrate · {{p:s4-pdf}}<br><br>
-<b>"Equally likely anywhere between A and B"</b> / "seragam"<br>→ <b>Uniform[A, B]</b> · {{p:s4-unif}}<br><br>
-<b>Bell-shaped, given mean and variance (or SD)</b>; heights, weights, thicknesses, scores<br>→ <b>Normal N(μ, σ²)</b> · {{p:s5-z}}<br><br>
-<b>Waiting time / lifetime / time between events</b>, x ≥ 0, "rata-rata waktu …"<br>→ <b>Exponential(λ)</b>, λ = 1/mean · {{p:s6-exp}}<br><br>
-<b>Binomial with large n</b> (np ≥ 5, n(1−p) ≥ 5) and no table/calculator support<br>→ <b>Normal approximation</b> with continuity correction · {{p:s5-approx}}
-</div>
-</div></div></div>
+<div class="two">
+<div class="node box"><b>X is a COUNT (0, 1, 2, …)</b>
+<ul class="compact">
+<li>n trials, success/failure, same p, independent → <b>Binomial</b> · {{p:s3-binom}}</li>
+<li>n drawn <i>without replacement</i> from a small lot → <b>Hypergeometric</b> · {{p:s3-hyper}}</li>
+<li>events per time/space at an average rate, no fixed n → <b>Poisson</b> · {{p:s3-pois}}</li>
+<li>a custom experiment (dice, coins, a given table) → build the pmf · {{p:s3-pmf}}</li>
+</ul></div>
+<div class="node box"><b>X is a MEASUREMENT (time, weight, temperature)</b>
+<ul class="compact">
+<li>formula f(x) given → integrate · {{p:s4-pdf}}</li>
+<li>equally likely on [A, B] → <b>Uniform</b> · {{p:s4-unif}}</li>
+<li>bell-shaped, mean and variance given → <b>Normal</b> · {{p:s5-z}}</li>
+<li>waiting time / lifetime → <b>Exponential</b>, λ = 1/mean · {{p:s6-exp}}</li>
+</ul></div></div>
 
-<h3>Master formula table</h3>
-<table class="full small">
-<thead><tr><th>Distribution</th><th>pmf / pdf</th><th>Range</th><th>Mean E(X)</th><th>Variance V(X)</th><th>Calculator</th></tr></thead>
+<h3>Formula table</h3>
+<table class="full">
+<thead><tr><th>Distribution</th><th>pmf / pdf</th><th>Values</th><th>Mean</th><th>Variance</th><th>Calculator</th></tr></thead>
 <tbody>
-<tr><td><b>Binomial</b> B(n, p)</td><td>\(\binom{n}{x}p^x(1-p)^{n-x}\)</td><td>0,1,…,n</td><td>\(np\)</td><td>\(np(1-p)\)</td><td>Binomial PD / CD</td></tr>
-<tr><td><b>Poisson</b>(λ)</td><td>\(\dfrac{e^{-\lambda}\lambda^x}{x!}\)</td><td>0,1,2,…</td><td>\(\lambda\)</td><td>\(\lambda\)</td><td>Poisson PD / CD</td></tr>
-<tr><td><b>Hypergeometric</b> h(x; n, M, N)</td><td>\(\dfrac{\binom{M}{x}\binom{N-M}{n-x}}{\binom{N}{n}}\)</td><td>max(0, n−N+M) … min(n, M)</td><td>\(n\dfrac{M}{N}\)</td><td>\(n\dfrac{M}{N}\Big(1-\dfrac{M}{N}\Big)\dfrac{N-n}{N-1}\)</td><td>nCr</td></tr>
-<tr><td><b>Geometric</b> (trial # of 1st success)</td><td>\((1-p)^{x-1}p\)</td><td>1,2,…</td><td>\(1/p\)</td><td>\((1-p)/p^2\)</td><td>by hand</td></tr>
-<tr><td><b>Neg. Binomial</b> (failures before r-th success, Devore)</td><td>\(\binom{x+r-1}{r-1}p^r(1-p)^x\)</td><td>0,1,2,…</td><td>\(r(1-p)/p\)</td><td>\(r(1-p)/p^2\)</td><td>nCr</td></tr>
-<tr><td><b>Uniform</b>[A, B]</td><td>\(\dfrac{1}{B-A}\)</td><td>A ≤ x ≤ B</td><td>\(\dfrac{A+B}{2}\)</td><td>\(\dfrac{(B-A)^2}{12}\)</td><td>by hand</td></tr>
-<tr><td><b>Normal</b> N(μ, σ²)</td><td>\(\dfrac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac12\left(\frac{x-\mu}{\sigma}\right)^2}\)</td><td>(−∞, ∞)</td><td>\(\mu\)</td><td>\(\sigma^2\)</td><td>Normal CD / Inverse</td></tr>
+<tr><td><b>Binomial</b> B(n, p)</td><td>\(\binom{n}{x}p^x(1-p)^{n-x}\)</td><td>0 … n</td><td>\(np\)</td><td>\(np(1-p)\)</td><td>Binomial PD / CD</td></tr>
+<tr><td><b>Poisson</b>(λ)</td><td>\(\dfrac{e^{-\lambda}\lambda^x}{x!}\)</td><td>0, 1, 2, …</td><td>\(\lambda\)</td><td>\(\lambda\)</td><td>Poisson PD / CD</td></tr>
+<tr><td><b>Hypergeometric</b></td><td>\(\dfrac{\binom{M}{x}\binom{N-M}{n-x}}{\binom{N}{n}}\)</td><td>0 … min(n, M)</td><td>\(n\frac{M}{N}\)</td><td>\(\frac{N-n}{N-1}\,n\frac{M}{N}\left(1-\frac{M}{N}\right)\)</td><td>nCr</td></tr>
+<tr><td><b>Uniform</b>[A, B]</td><td>\(\dfrac{1}{B-A}\)</td><td>A ≤ x ≤ B</td><td>\(\frac{A+B}{2}\)</td><td>\(\frac{(B-A)^2}{12}\)</td><td>by hand</td></tr>
+<tr><td><b>Normal</b> N(μ, σ²)</td><td>\(\frac{1}{\sqrt{2\pi\sigma^2}}e^{-\frac12\left(\frac{x-\mu}{\sigma}\right)^2}\)</td><td>all real x</td><td>\(\mu\)</td><td>\(\sigma^2\)</td><td>Normal CD / Inverse</td></tr>
 <tr><td><b>Exponential</b>(λ)</td><td>\(\lambda e^{-\lambda x}\)</td><td>x ≥ 0</td><td>\(1/\lambda\)</td><td>\(1/\lambda^2\)</td><td>\(e^x\) key</td></tr>
 </tbody></table>
+<p class="small">Geometric and Negative Binomial: see {{p:s3-geo}}.</p>
 <div class="two">
-<div class="box"><b>CDFs you can write directly</b><br>
-Uniform: \(F(x)=\dfrac{x-A}{B-A}\), A ≤ x ≤ B<br>
-Exponential: \(F(x)=1-e^{-\lambda x}\), so \(\P(X&gt;x)=e^{-\lambda x}\)<br>
-Normal: \(F(x)=\Phi\!\left(\dfrac{x-\mu}{\sigma}\right)\) (z-table)<br>
-Binomial / Poisson: sum the pmf, or use the tables / CD</div>
+<div class="box"><b>CDFs</b><br>
+Uniform \(F(x)=\frac{x-A}{B-A}\) · Exponential \(F(x)=1-e^{-\lambda x}\)<br>
+Normal \(F(x)=\Phi\!\left(\frac{x-\mu}{\sigma}\right)\) · Binomial/Poisson: CD key or Tab T</div>
 <div class="box"><b>Rules for any X</b><br>
-\(\E(aX+b)=a\E(X)+b\)<br>
-\(\Var(aX+b)=a^2\Var(X)\) (the +b disappears!)<br>
-\(\Var(X)=\E(X^2)-[\E(X)]^2\)<br>
-\(\sigma=\sqrt{\Var(X)}\) (always ≥ 0)<br>
-Continuous: \(\P(X=a)=0\) so ≤ and &lt; are the same</div>
+\(\E(aX+b)=a\E(X)+b\) · \(\Var(aX+b)=a^2\Var(X)\)<br>
+\(\Var(X)=\E(X^2)-[\E(X)]^2\) · SD = √Var</div></div>
+</section>
+
+<section>
+<anchor id="C" label="C · Calculator (fx-991ID)"/>
+<h2 class="sec">C · Calculator (fx-991ID)</h2>
+<table class="full">
+<thead><tr><th>Need</th><th>Keys</th><th>Inputs</th><th>Check value</th></tr></thead>
+<tbody>
+<tr><td>Binomial P(X = x)</td><td><kbd>MODE</kbd> DIST → Binomial PD → Var</td><td>x, N, p</td><td>3, 8, 0.4 → 0.27869</td></tr>
+<tr><td>Binomial P(X ≤ x)</td><td>DIST → Binomial CD → Var</td><td>x, N, p</td><td>3, 8, 0.4 → 0.59409</td></tr>
+<tr><td>Poisson P(X = x) / P(X ≤ x)</td><td>DIST → Poisson PD / CD → Var</td><td>x, μ (= λ)</td><td>3, 4 → 0.19537 / 0.43347</td></tr>
+<tr><td>Normal P(a ≤ X ≤ b)</td><td>DIST → Normal CD</td><td>Lower, Upper, <b>σ</b>, μ</td><td>485, 515, 8, 500 → 0.93921</td></tr>
+<tr><td>Normal x for a left area</td><td>DIST → Inverse Normal</td><td>Area, <b>σ</b>, μ</td><td>0.97, √15, 50 → 57.284</td></tr>
+<tr><td>Data: x̄, s</td><td><kbd>MODE</kbd> STAT → 1-VAR, enter data, <kbd>AC</kbd>, <kbd>SHIFT</kbd><kbd>1</kbd> → Var</td><td>use <b>sx</b>, not σx</td><td>2, 9, 11, 5, 6 → sx 3.5071</td></tr>
+<tr><td>Integral</td><td><kbd>∫▭dx</kbd> in COMP, X = <kbd>ALPHA</kbd><kbd>)</kbd></td><td>f(x), lower, upper</td><td>∫₃⁴(0.075x+0.2) → 0.4625</td></tr>
+<tr><td>Solve F(x) = p</td><td><kbd>SHIFT</kbd><kbd>CALC</kbd></td><td>equation, start guess</td><td>median of a pdf</td></tr>
+<tr><td>nCr / nPr / x! / eˣ</td><td><kbd>SHIFT</kbd><kbd>÷</kbd> / <kbd>SHIFT</kbd><kbd>×</kbd> / <kbd>SHIFT</kbd><kbd>x⁻¹</kbd> / <kbd>SHIFT</kbd><kbd>ln</kbd></td><td></td><td>20C2 = 190</td></tr>
+</tbody></table>
+<div class="two">
+<div class="warn"><b>Normal CD and Inverse Normal take σ, not the variance.</b> "Varians 15" → enter σ = √15 = 3.873.</div>
+<div class="warn"><b>One-sided normal:</b> P(X ≤ b): Lower = −1×10⁹⁹. P(X ≥ a): Upper = 1×10⁹⁹. Inverse Normal is left-tail only: "top 5%" → Area 0.95.</div>
 </div>
+<div class="calc"><b>Converting CD output</b> (discrete): P(X &lt; k) = CD(k−1) · P(X ≥ k) = 1 − CD(k−1) · P(X &gt; k) = 1 − CD(k) · P(a ≤ X ≤ b) = CD(b) − CD(a−1)</div>
+<p class="small">Store unrounded values with <kbd>STO</kbd> A, B … and round only the final answer to 4 decimals.</p>
 </section>

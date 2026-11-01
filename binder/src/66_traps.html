@@ -1,0 +1,41 @@
+<section>
+<anchor id="X" label="X · Traps"/>
+<h2 class="sec">X · Traps</h2>
+<h3>Traps that appeared on Quiz 1</h3>
+<table class="full">
+<thead><tr><th>The question says</th><th>Trap</th><th>Do this</th></tr></thead><tbody>
+<tr><td>"rata-rata 50 dan <b>varians 15</b>"</td><td>Using 15 as σ gives P(X &gt; 60) = 0.2525 instead of 0.0049.</td><td>σ = √15 = 3.873. Enter σ in Normal CD.</td></tr>
+<tr><td>"agar <b>97%</b> … dalam waktu tersebut atau lebih cepat"</td><td>Looking up 0.03 or using the right tail.</td><td>"or faster" = left area 0.97 → z = 1.88 → x = μ + zσ.</td></tr>
+<tr><td>"rata-rata 4 per jam … selama <b>30 menit</b>"</td><td>Keeping λ = 4.</td><td>λ = 4 × 0.5 = 2, then P(X = 0) = e⁻².</td></tr>
+<tr><td>"<b>setidaknya</b> 4", "paling sedikit"</td><td>1 − CD(4).</td><td>P(X ≥ 4) = 1 − CD(<b>3</b>).</td></tr>
+<tr><td>"berada <b>dari 2 hingga 5</b>"</td><td>CD(5) − CD(2) drops x = 2.</td><td>CD(5) − CD(<b>1</b>).</td></tr>
+<tr><td>"Windows <b>atau</b> rusak"</td><td>Adding 60 + 25 counts Windows-rusak twice.</td><td>(60 + 25 − 10)/130.</td></tr>
+<tr><td>"<b>jika diketahui</b> rusak, … Linux?"</td><td>Dividing by the grand total.</td><td>Divide by the rusak total: 10/25.</td></tr>
+<tr><td>"standar deviasi" of 15 data values</td><td>σx (÷ n) instead of sx (÷ n − 1).</td><td>Use sx; CV uses the same s.</td></tr>
+<tr><td>"suhu operasional (°C)"</td><td>Calling it ratio.</td><td>°C is <b>interval</b> (0°C is not "no heat").</td></tr>
+<tr><td>"tingkat akurasi / tingkat kesalahan"</td><td>Calling every "tingkat" ordinal.</td><td>A percentage is ratio. Words like tinggi/rendah are ordinal. State your assumption.</td></tr>
+<tr><td>boxplot whiskers</td><td>Drawing whiskers to the fences or to the outliers.</td><td>Whiskers stop at the last value inside the fences.</td></tr>
+</tbody></table>
+
+<h3>Mistakes on the class boards and in your notes</h3>
+<table class="full small"><thead><tr><th>Board / notes say</th><th>Correct</th></tr></thead><tbody>
+<tr><td>f(x) = 0,75x + 0,2 on [3, 5], then divide by 6.4</td><td><b>0,075x + 0,2</b> (integrates to 1). Answers on {{p:s4-ex}}.</td></tr>
+<tr><td>"P(X ≤ x) = f(x) = pdf"; "cumulative density function"</td><td>P(X ≤ x) = F(x) is the cdf, the cumulative <b>distribution</b> function.</td></tr>
+<tr><td>Exponential: "λ = rata-rata"; P(X = 88) = f(88)</td><td>mean = 1/λ; P(X = 88) = 0 for a continuous X.</td></tr>
+<tr><td>56 · 0.64 · 0.077 for B(8, 0.4); σ = 0.913 for variance 0.84</td><td>0.4³ = 0.064; √0.84 = 0.9165.</td></tr>
+<tr><td>"s = ±2", "σ² &gt; 0"</td><td>s = +√s² only; variance ≥ 0.</td></tr>
+</tbody></table>
+
+<h3>General traps</h3>
+<div class="two"><ul class="small compact">
+<li>Discrete: P(X &lt; 3) = P(X ≤ 2). Continuous: ≤ and &lt; are the same.</li>
+<li>Without replacement from a small lot → Hypergeometric, not Binomial.</li>
+<li>Independent ≠ mutually exclusive.</li>
+<li>P(A | B) ≠ P(B | A). Use Bayes to flip.</li>
+</ul><ul class="small compact">
+<li>Var(aX + b) = a²Var(X).</li>
+<li>Exponential: λ = 1/mean.</li>
+<li>Round z to 2 decimals for the table only.</li>
+<li>Indonesian numbers: 0,4 = 0.4 and 15.015 = 15015.</li>
+</ul></div>
+</section>

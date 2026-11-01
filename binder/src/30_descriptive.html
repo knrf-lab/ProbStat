@@ -37,6 +37,33 @@ Board example: 17.2, 18.6, 18.8, 18.8, 20.1, 21.3, 23.5 →
 </tbody></table>
 </div></div>
 
+<div style="break-before:page"></div>
+<anchor id="s1-scale"/>
+<h3>Measurement scales <span class="id">(skala pengukuran)</span>: Nominal · Ordinal · Interval · Ratio</h3>
+<p>Quiz 1 question 1 asked for <b>both</b> the variable type and the scale of every variable. Answer with two labels for each variable, e.g. "kuantitatif kontinu, rasio".</p>
+<table class="full">
+<thead><tr><th>Scale</th><th>What it means</th><th>Allowed</th><th>Examples (Computer Engineering)</th></tr></thead>
+<tbody>
+<tr><td><b>Nominal</b></td><td>Categories with <b>no order</b>. Numbers used as labels are still nominal.</td><td>count, mode, =, ≠</td><td>jenis OS, jenis sensor, jenis mikrokontroler, protokol komunikasi, merek, status ON/OFF, gagal/tidak gagal, NIM, ID perangkat</td></tr>
+<tr><td><b>Ordinal</b></td><td>Categories with a <b>natural order</b>, but the gaps between them are not equal or measurable.</td><td>+ median, &lt;, &gt;, ranking</td><td>kondisi Baik/Sedang/Rusak, suhu CPU Normal/Tinggi, grade A/B/C, tingkat kepuasan 1–5, prioritas rendah/sedang/tinggi, peringkat</td></tr>
+<tr><td><b>Interval</b></td><td>Numbers with equal gaps, but <b>zero is arbitrary</b> (0 does not mean "none"). Differences make sense, ratios do not.</td><td>+ mean, SD, differences</td><td>suhu in <b>°C or °F</b>, tahun (calendar year), jam/tanggal (clock time)</td></tr>
+<tr><td><b>Ratio</b></td><td>Numbers with equal gaps and a <b>true zero</b> (0 = none). "Twice as much" makes sense.</td><td>everything, including CV and ratios</td><td>waktu respons, kecepatan, daya (W), tegangan (V), amplitudo (mV), berat, panjang, jumlah perangkat/kegagalan, persentase error, akurasi (%), suhu in <b>Kelvin</b></td></tr>
+</tbody></table>
+<div class="two"><div class="box"><b>Decision steps</b>
+<ol class="compact">
+<li>Are the values words or labels? → <b>qualitative / kategorik</b>.<br>Is there a natural order? Yes → <b>ordinal</b>. No → <b>nominal</b>.</li>
+<li>Are the values numbers you can add and average? → <b>quantitative / numerik</b>.<br>Counted (0, 1, 2 …) → <b>discrete</b>. Measured → <b>continuous</b>.</li>
+<li>Does 0 mean "none of it"? Yes → <b>ratio</b>. No (0°C still has heat) → <b>interval</b>.</li>
+</ol></div>
+<div><div class="warn"><b>"Tingkat …" (level of …)</b> is ambiguous. "Tingkat akurasi 97,5%" is a number, so it is ratio. "Tingkat akurasi tinggi/sedang/rendah" is ordinal. When unsure, write the assumption, e.g. "diasumsikan dalam persen (%) → rasio".</div>
+<div class="warn"><b>Counts are ratio, not interval.</b> "Jumlah kegagalan" = 0 means no failures, a true zero. Temperature in °C is the classic interval example.</div></div></div>
+<table class="full small">
+<thead><tr><th>Answer template</th><th>Variable</th><th>Type <span class="id">(jenis)</span></th><th>Scale <span class="id">(skala)</span></th><th>Reason (one line)</th></tr></thead><tbody>
+<tr><td rowspan="2">Write one row per variable</td><td>Waktu respons sensor (ms)</td><td>Kuantitatif kontinu</td><td>Rasio</td><td>measured; 0 ms = no time</td></tr>
+<tr><td>Jenis protokol komunikasi</td><td>Kualitatif</td><td>Nominal</td><td>labels (I2C, SPI, UART) with no order</td></tr>
+</tbody></table>
+<p class="small">The full worked answer for all 15 Quiz 1 variables is on {{p:R-LA1}}.</p>
+
 <anchor id="s1-mean"/>
 <h3>Measures of centre <span class="id">(ukuran pemusatan)</span></h3>
 <div class="two"><div>
@@ -66,6 +93,17 @@ n = 5, Σx = 45, x̄ = 9, Σx² = 25+144+36+64+196 = 465<br>
 <p><b>Range approximation</b>: R ≈ 4s to 6s, so s ≈ R/4 (a rough check).</p>
 </div></div>
 
+<anchor id="s1-cv"/>
+<h3>Coefficient of variation <span class="id">(koefisien variasi, CV)</span></h3>
+<div class="two"><div class="box">
+\[CV=\frac{s}{\bar x}\times 100\%\quad(\text{sample})\qquad CV=\frac{\sigma}{\mu}\times100\%\quad(\text{population})\]
+CV is the SD as a percentage of the mean. It has <b>no unit</b>, so you can compare spread between data sets with different units or very different means.<br>
+<b>Smaller CV = more stable / consistent</b> <span class="id">(lebih stabil, lebih konsisten)</span>.<br>
+Use it only for ratio-scale data with a positive mean.</div>
+<div><div class="ex"><span class="t">Example.</span> Sensor A: x̄ = 34 mV, s = 18.36 mV → CV = 18.36/34 × 100% = 54%. Sensor B: x̄ = 30 mV, s = 3 mV → CV = 10%. Sensor B is far more stable.</div>
+<div class="tip">Use the <b>sample</b> SD s (calculator sx), unless the question says the data are a whole population. Show both numbers in the formula: "CV = 18,3555 / 33,9333 × 100% = 54,09%".</div>
+<p class="small">Rough guide often used in engineering reports: CV below 10% is low, 10–30% moderate, above 30% high variability. State it as an interpretation, not a rule.</p></div></div>
+
 <anchor id="s1-cheb"/>
 <h3>Chebyshev (Tchebysheff) vs the Empirical rule</h3>
 <div class="two"><div class="box">
@@ -82,27 +120,34 @@ Tails: P(above μ + 2σ) ≈ 2.5%; P(above μ + σ) ≈ 16%.</div></div>
 <p><b>z-score</b>: \(z=\dfrac{x-\bar x}{s}\). |z| ≤ 2 is not unusual; |z| &gt; 3 suggests an outlier. <b>p-th percentile</b>: p% of the values lie below it.</p>
 
 <anchor id="s1-quart"/>
-<h3>Quartiles, IQR, five-number summary, box plot</h3>
-<div class="two"><div>
-<div class="box">
-After sorting: position of \(Q_1 = 0.25(n+1)\), median \(= 0.5(n+1)\), \(Q_3 = 0.75(n+1)\). If a position is fractional, <b>interpolate</b>: value at 4.75 = x₍₄₎ + 0.75(x₍₅₎ − x₍₄₎).<br>
+<h3>Quartiles, IQR, five-number summary</h3>
+<div class="two"><div class="box">
+Sort the data first <span class="id">(urutkan)</span>. Positions (slides' rule):<br>
+\(Q_1\) at \(0.25(n+1)\) · median \(Q_2\) at \(0.5(n+1)\) · \(Q_3\) at \(0.75(n+1)\)<br>
+If a position is fractional, <b>interpolate</b>: position 4.75 → \(x_{(4)}+0.75\,(x_{(5)}-x_{(4)})\).<br>
+<b>n = 15</b> (both Quiz 1 versions): Q1 = 4th value, median = 8th, Q3 = 12th. No interpolation needed.<br>
 \(IQR=Q_3-Q_1\)<br>
-<b>Fences</b> <span class="id">(batas)</span>: LL = \(Q_1-1.5\,IQR\), UL = \(Q_3+1.5\,IQR\). Points beyond them are <b>outliers</b>, marked *.<br>
-<b>Five-number summary</b>: Min, Q1, Median (Q2), Q3, Max.</div>
-<p><b>Box plot</b>: box from Q1 to Q3 with a line at the median. Whiskers go to the most extreme values that are <i>not</i> outliers.<br>
-Median left of centre and a long right whisker means skewed right. Median right of centre and a long left whisker means skewed left.</p>
-</div><div>
-<div class="ex"><span class="t">Example (slides): shoe prices, n = 18</span><br>
-<span class="small">40 60 65 65 65 68 68 70 70 70 70 70 70 74 75 75 90 95</span><br>
-Q1 position = 0.25(19) = 4.75 → 65 + 0.75(65 − 65) = <b>65</b><br>
-Q3 position = 0.75(19) = 14.25 → x₍₁₄₎ + 0.25(x₍₁₅₎ − x₍₁₄₎) = 74 + 0.25(75 − 74) = <b>74.25</b><br>
-Median at 9.5 → 70. IQR = 9.25; fences 51.125 and 88.125 → <b>40, 90 and 95 are outliers</b>.<br>
-<span class="small">(The slide gets 75.25 because its sorted list leaves out the 40. Use your own sorted list and count positions carefully.)</span></div>
-<div class="ex"><span class="t">Example (slides): sodium in 8 cheeses</span><br>
-260 290 300 320 330 340 340 520<br>
-Q1 position 2.25 → 290 + 0.25(10) = 292.5; Q3 position 6.75 → 340 + 0.75(0) = 340<br>
-IQR = 47.5; LL = 292.5 − 71.25 = 221.25; UL = 340 + 71.25 = 411.25<br>
-→ <b>520 is an outlier</b>. The upper whisker stops at 340.</div>
-</div></div>
-<div class="warn">Different textbooks and calculators use different quartile rules. In the exam, use the <b>0.25(n+1)</b> rule from the slides and show the position you computed.</div>
+<b>Five-number summary</b> <span class="id">(ringkasan lima angka)</span>: Min, Q1, Median, Q3, Max.</div>
+<div class="box">
+<b>Fences</b> <span class="id">(batas pencilan)</span>:<br>
+LL = \(Q_1-1.5\,IQR\) · UL = \(Q_3+1.5\,IQR\)<br>
+A value below LL or above UL is an <b>outlier</b> <span class="id">(pencilan)</span>, drawn as *.<br>
+Whiskers go to the <b>most extreme values that are not outliers</b>, not to the fences.<br>
+<b>Shape</b>: median closer to Q1 and a long right side → <b>skewed right</b> (mean &gt; median). Median closer to Q3 → skewed left.</div></div>
+
+<anchor id="s1-box"/>
+<h3>Drawing the boxplot (diagram kotak)</h3>
+<div class="two"><div><ol class="compact">
+<li>Draw a number line with a scale that covers the min, max and both fences.</li>
+<li>Draw a box from Q1 to Q3 and a vertical line at the median.</li>
+<li>Compute LL and UL. Mark them with dashed lines (optional, but it shows your check).</li>
+<li>Draw each whisker to the last data value inside the fences.</li>
+<li>Mark each outlier with *.</li>
+<li>Write the conclusion: "Terdapat outlier: 65, 67, 75 (&gt; UL = 36,5)" or "Tidak terdapat outlier karena semua data berada di antara LL dan UL".</li>
+</ol></div>
+<div><div class="ex"><span class="t">Slides: sodium in 8 cheeses</span> 260 290 300 320 330 340 340 520<br>
+Q1 position 2.25 → 292.5 · median 4.5 → 325 · Q3 position 6.75 → 340 · IQR 47.5 · LL 221.25 · UL 411.25 → <b>520 is an outlier</b>, the upper whisker stops at 340.</div></div></div>
+<img class="bp" src="../svg/cheese.svg"/>
+<div class="ex"><span class="t">Slides: shoe prices, n = 18</span> 40 60 65 65 65 68 68 70 70 70 70 70 70 74 75 75 90 95. Q1 position 4.75 → 65; Q3 position 14.25 → 74 + 0.25(75 − 74) = 74.25; median 70; IQR 9.25; fences 51.125 and 88.125 → <b>40, 90 and 95 are outliers</b>. <span class="small">(The slide gets 75.25 because its list leaves out the 40.)</span></div>
+<div class="warn">Different books and calculators use different quartile rules. Use the <b>0.25(n+1)</b> rule and write the position you used.</div>
 </section>
