@@ -1,0 +1,139 @@
+<section>
+<anchor id="MK" label="M · Practice Midterm Answers"/>
+<h2 class="sec">M · Practice Midterm: worked answers</h2>
+
+<div class="solhead" style="margin-top:0">1. Variable type and measurement scale</div>
+<table class="full"><thead><tr><th>Variabel</th><th>Jenis</th><th>Skala</th><th>Alasan</th></tr></thead><tbody>
+<tr><td>Merek router</td><td>Kualitatif</td><td>Nominal</td><td>labels with no order</td></tr>
+<tr><td>Bandwidth (Mbps)</td><td>Kuantitatif kontinu</td><td>Rasio</td><td>0 Mbps = no bandwidth</td></tr>
+<tr><td>Latensi (ms)</td><td>Kuantitatif kontinu</td><td>Rasio</td><td>measured time, true zero</td></tr>
+<tr><td>Jumlah perangkat terhubung</td><td>Kuantitatif diskrit</td><td>Rasio</td><td>a count</td></tr>
+<tr><td>Kualitas sinyal (lemah/sedang/kuat)</td><td>Kualitatif</td><td>Ordinal</td><td>ordered words, unequal gaps</td></tr>
+<tr><td>Suhu ruang server (°C)</td><td>Kuantitatif kontinu</td><td>Interval</td><td>0°C is not "no heat"</td></tr>
+<tr><td>Status koneksi</td><td>Kualitatif</td><td>Nominal</td><td>two labels, no order</td></tr>
+<tr><td>Tingkat kepuasan (1–5)</td><td>Kualitatif</td><td>Ordinal</td><td>a ranking; the gap 1→2 need not equal 4→5</td></tr>
+<tr><td>Packet loss (%)</td><td>Kuantitatif kontinu</td><td>Rasio</td><td>0% = no loss</td></tr>
+<tr><td>Tahun pembuatan</td><td>Kuantitatif diskrit</td><td>Interval</td><td>year 0 is an arbitrary origin; 2024 is not "twice" 1012</td></tr>
+<tr><td>Nomor port (80, 443 …)</td><td>Kualitatif</td><td>Nominal</td><td>numbers used as labels; averaging them is meaningless</td></tr>
+<tr><td>Sisa daya baterai (%)</td><td>Kuantitatif kontinu</td><td>Rasio</td><td>0% = empty</td></tr>
+</tbody></table>
+<p class="small">The three that most often lose marks: <b>suhu °C</b> (interval), <b>tahun</b> (interval), and <b>nomor port</b> (nominal, even though it is a number).</p>
+
+<div class="solhead">2. Descriptive statistics (latency, ms)</div>
+<div class="given"><b>Step 0: sort</b> (bold = Q1, median, Q3)<table class="small" style="margin:1mm 0"><tbody><tr><th>Position</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td></tr><tr><th>Value</th><td>11</td><td>12</td><td>12</td><td><b>13</b></td><td>13</td><td>14</td><td>14</td><td><b>15</b></td><td>15</td><td>15</td><td>16</td><td><b>17</b></td><td>18</td><td>48</td><td>52</td></tr></tbody></table>n = 15 · Σx = 285 · Σx² = 7691<br>
+Positions for n = 15: Q1 = 4th, median = 8th, Q3 = 12th.</div>
+<div class="part"><div class="h">a. Mean, median, mode</div>
+<div class="lab">Working</div><div>x̄ = 285/15 · median = x₍₈₎ · mode = the value appearing most often (15 appears 3 times)</div>
+<div class="lab ok">Answer</div><div><span class="ans">x̄ = 19 ms, median = 15 ms, mode = 15 ms</span></div></div>
+<div class="part"><div class="h">b. Five-number summary, IQR</div>
+<div class="lab ok">Answer</div><div><span class="ans">Min 11, Q1 13, Median 15, Q3 17, Max 52 · IQR = 17 − 13 = 4</span></div></div>
+<div class="part"><div class="h">c. Variance and SD</div>
+<div class="lab">Working</div><div>\(s^2=\dfrac{7691-285^2/15}{14}=\dfrac{7691-5415}{14}=\dfrac{2276}{14}\)</div>
+<div class="lab ok">Answer</div><div><span class="ans">s² = 162.5714 ms², s = 12.7504 ms</span></div>
+<div class="lab">Check</div><div>STAT → sx = 12.7504</div></div>
+<div class="part"><div class="h">d. CV</div>
+<div class="lab">Working</div><div>CV = 12.7504 / 19 × 100%</div>
+<div class="lab ok">Answer</div><div><span class="ans">CV = 67.11%</span>, very high variability</div></div>
+<div class="two"><div class="part"><div class="h">e. Stem-and-leaf</div>
+<div class="lab ok">Answer</div><div><span class="stem">1 | 1 2 2 3 3 4 4 5 5 5 6 7 8
+2 |
+3 |
+4 | 8
+5 | 2
+Key: 1 | 1 = 11 ms</span></div></div>
+<div class="part"><div class="h">f. Boxplot, outliers</div>
+<div class="lab">Working</div><div>LL = 13 − 1.5(4) = 7<br>UL = 17 + 1.5(4) = 23<br>48, 52 &gt; 23. Whiskers: 11 to 18.</div>
+<div class="lab ok">Answer</div><div><span class="ans">Outliers: 48 and 52 ms</span></div></div></div>
+<img class="bp" src="../svg/M_q2.svg"/>
+<div class="part"><div class="h">g. Which router is more stable?</div>
+<div class="lab">Working</div><div>Router 1: CV = 67.11%. Router 2: CV = 3/30 × 100% = 10%.</div>
+<div class="lab ok">Answer</div><div><span class="ans">Router 2 is more stable</span>: its CV is smaller. Comparing SDs alone is not enough when the means differ.</div></div>
+<div class="part"><div class="h">h. Without the outliers (n = 13)</div>
+<div class="lab">Working</div><div>Σx = 285 − 48 − 52 = 185 → x̄ = 14.2308 · STAT on the 13 values → sx = 2.0475 · CV = 2.0475/14.2308 × 100%</div>
+<div class="lab ok">Answer</div><div><span class="ans">x̄ = 14.23 ms, CV = 14.39%</span>. Two spikes caused most of the variability. The median (15) hardly changes, which shows it is robust.</div></div>
+</section>
+
+<section>
+<div class="solhead" style="margin-top:0">3. Contingency table (router brand × connection quality)</div>
+<div class="given"><table class="small"><thead><tr><th></th><th>Stabil</th><th>Kadang</th><th>Sering</th><th>Total</th></tr></thead><tbody>
+<tr><th>A</th><td>45</td><td>10</td><td>5</td><td><b>60</b></td></tr><tr><th>B</th><td>30</td><td>20</td><td>10</td><td><b>60</b></td></tr><tr><th>C</th><td>15</td><td>10</td><td>15</td><td><b>40</b></td></tr>
+<tr><th>Total</th><td><b>90</b></td><td><b>40</b></td><td><b>30</b></td><td><b>160</b></td></tr></tbody></table></div>
+<div class="two"><div>
+<div class="part"><div class="h">a. P(B ∩ Sering)</div><div class="lab ok">Answer</div><div>10/160 = <span class="ans">0.0625</span></div></div>
+<div class="part"><div class="h">b. P(A ∪ Sering)</div><div class="lab">Working</div><div>(60 + 30 − 5)/160 = 85/160</div><div class="lab ok">Answer</div><div><span class="ans">0.5313</span></div></div>
+<div class="part"><div class="h">c. P(C | Sering)</div><div class="lab">Working</div><div>divide by the Sering total: 15/30</div><div class="lab ok">Answer</div><div><span class="ans">0.5</span></div></div>
+</div><div>
+<div class="part"><div class="h">d. P(Kadang | B)</div><div class="lab">Working</div><div>divide by the B total: 20/60</div><div class="lab ok">Answer</div><div><span class="ans">0.3333</span></div></div>
+<div class="part"><div class="h">e. P(A | Stabil)</div><div class="lab">Working</div><div>45/90</div><div class="lab ok">Answer</div><div><span class="ans">0.5</span></div></div>
+</div></div>
+<div class="part"><div class="h">f. Independent?</div>
+<div class="lab">Working</div><div>P(Stabil | A) = 45/60 = 0.75, but P(Stabil) = 90/160 = 0.5625.<br>Equivalently P(A ∩ Stabil) = 45/160 = 0.2813 ≠ P(A)P(Stabil) = 0.375 × 0.5625 = 0.2109.</div>
+<div class="lab ok">Answer</div><div><span class="ans">Not independent.</span> Brand A routers are stable more often than routers overall.</div></div>
+<div class="part"><div class="h">g. Most likely brand of a router that often drops</div>
+<div class="lab">Working</div><div>P(A | Sering) = 5/30 = 0.1667 · P(B | Sering) = 10/30 = 0.3333 · P(C | Sering) = 15/30 = 0.5</div>
+<div class="lab ok">Answer</div><div><span class="ans">Brand C</span> (0.5). This is Bayes' rule read straight from the table.</div></div>
+
+<div class="solhead">4. Binomial: X ~ B(15, 0.1)</div>
+<div class="given">X = banyaknya chip cacat. P(0) = 0.9¹⁵ = 0.2059, P(1) = 0.3432, P(2) = 0.2669, P(3) = 0.1285, P(4) = 0.0428</div>
+<div class="part"><div class="h">a. P(X = 2)</div><div class="lab">Working</div><div>\(\binom{15}{2}(0.1)^2(0.9)^{13}=105(0.01)(0.2542)\)</div><div class="lab ok">Answer</div><div><span class="ans">0.2669</span></div></div>
+<div class="part"><div class="h">b. P(X ≤ 1)</div><div class="lab">Working</div><div>0.2059 + 0.3432</div><div class="lab ok">Answer</div><div><span class="ans">0.5490</span></div></div>
+<div class="part"><div class="h">c. P(X ≥ 3)</div><div class="lab">Working</div><div>1 − CD(2) = 1 − 0.8159 (CD(2) = 0.2059 + 0.3432 + 0.2669, unrounded 0.81594)</div><div class="lab ok">Answer</div><div><span class="ans">0.1841</span></div></div>
+<div class="part"><div class="h">d. P(1 ≤ X ≤ 3)</div><div class="lab">Working</div><div>0.3432 + 0.2669 + 0.1285 = CD(3) − CD(0)</div><div class="lab ok">Answer</div><div><span class="ans">0.7386</span></div></div>
+<div class="part"><div class="h">e. P(X ≥ 1)</div><div class="lab">Working</div><div>1 − 0.9¹⁵</div><div class="lab ok">Answer</div><div><span class="ans">0.7941</span></div></div>
+<div class="part"><div class="h">f. Mean and SD</div><div class="lab">Working</div><div>μ = 15(0.1) · σ = √(15 · 0.1 · 0.9) = √1.35</div><div class="lab ok">Answer</div><div><span class="ans">μ = 1.5, σ = 1.1619</span></div></div>
+</section>
+
+<section>
+<div class="solhead" style="margin-top:0">5. Poisson: 6 requests per minute</div>
+<div class="given">X = request per menit, X ~ Poisson(6). e⁻⁶ = 0.0024788. P(0) = 0.0025, P(1) = 0.0149, P(2) = 0.0446, P(3) = 0.0892, P(4) = 0.1339</div>
+<div class="part"><div class="h">a. P(X = 4)</div><div class="lab">Working</div><div>\(\dfrac{e^{-6}6^4}{4!}=\dfrac{0.0024788\times1296}{24}\)</div><div class="lab ok">Answer</div><div><span class="ans">0.1339</span></div></div>
+<div class="part"><div class="h">b. P(X ≤ 2)</div><div class="lab">Working</div><div>\(e^{-6}(1+6+18)=25e^{-6}\)</div><div class="lab ok">Answer</div><div><span class="ans">0.0620</span></div></div>
+<div class="part"><div class="h">c. P(X ≥ 2)</div><div class="lab">Working</div><div>1 − P(0) − P(1) = 1 − 7e⁻⁶</div><div class="lab ok">Answer</div><div><span class="ans">0.9826</span></div></div>
+<div class="part"><div class="h">d. No request in 20 seconds</div><div class="lab">Method</div><div>Rescale: 20 s = 1/3 minute → λ = 6 × 1/3 = 2</div><div class="lab ok">Answer</div><div>e⁻² = <span class="ans">0.1353</span></div></div>
+<div class="part"><div class="h">e. At least 1 in 30 seconds</div><div class="lab">Method</div><div>λ = 6 × 0.5 = 3; P(Y ≥ 1) = 1 − e⁻³</div><div class="lab ok">Answer</div><div><span class="ans">0.9502</span></div></div>
+<div class="part"><div class="h">f. Mean and SD per minute</div><div class="lab">Working</div><div>For a Poisson, mean = variance = λ</div><div class="lab ok">Answer</div><div><span class="ans">μ = 6, σ = √6 = 2.4495</span></div></div>
+
+<div class="solhead">6. Normal: X ~ N(120, 64), σ = √64 = 8</div>
+<div class="part"><div class="h">a. P(X &lt; 110)</div><div class="lab">Working</div><div>z = (110 − 120)/8 = −1.25 → Φ(−1.25)</div><div class="lab ok">Answer</div><div><span class="ans">0.1056</span></div></div>
+<div class="part"><div class="h">b. P(114 &lt; X &lt; 130)</div><div class="lab">Working</div><div>z = −0.75 and 1.25 → 0.8944 − 0.2266</div><div class="lab ok">Answer</div><div><span class="ans">0.6678</span></div></div>
+<div class="part"><div class="h">c. P(X &gt; 136)</div><div class="lab">Working</div><div>z = 16/8 = 2.00 → 1 − 0.9772</div><div class="lab ok">Answer</div><div><span class="ans">0.0228</span></div></div>
+<div class="part"><div class="h">d. Minimum life to be in the best 5%</div><div class="lab">Method</div><div>Best 5% = right tail 0.05 → left area 0.95 → z = 1.645</div><div class="lab">Working</div><div>x = 120 + 1.645(8)</div><div class="lab ok">Answer</div><div><span class="ans">133.16 minutes</span> (Inverse Normal 0.95 → 133.159)</div></div>
+<div class="part"><div class="h">e. Time by which 90% have run out</div><div class="lab">Method</div><div>"90% sudah habis pada waktu tersebut atau lebih cepat" = left area 0.90 → z = 1.28</div><div class="lab">Working</div><div>x = 120 + 1.28(8)</div><div class="lab ok">Answer</div><div><span class="ans">130.24 minutes</span> (Inverse Normal → 130.25)</div></div>
+</section>
+
+<section>
+<div class="solhead" style="margin-top:0">7. (Bonus) Continuous pdf: f(x) = k(4 − x) on [0, 4]</div>
+<div class="part"><div class="h">a. Find k and prove f is a pdf</div>
+<div class="lab">Working</div><div>\(\int_0^4 k(4-x)\,dx=k\left[4x-\tfrac{x^2}{2}\right]_0^4=k(16-8)=8k=1\Rightarrow k=\tfrac18\).<br>
+For 0 ≤ x ≤ 4, 4 − x ≥ 0, so f(x) ≥ 0. Elsewhere f = 0. Both conditions hold ∴ f is a pdf.</div>
+<div class="lab ok">Answer</div><div><span class="ans">k = 1/8 = 0.125</span></div></div>
+<div class="part"><div class="h">b. Probabilities</div>
+<div class="lab">Working</div><div>Use \(F(x)=\tfrac18\left(4x-\tfrac{x^2}{2}\right)\): F(1) = 3.5/8 = 0.4375 · F(3) = 7.5/8 = 0.9375 · F(2) = 6/8 = 0.75</div>
+<div class="lab ok">Answer</div><div><span class="ans">P(X ≤ 1) = 0.4375 · P(1 &lt; X &lt; 3) = 0.5 · P(X &gt; 2) = 0.25</span></div></div>
+<div class="part"><div class="h">c. cdf</div>
+<div class="lab ok">Answer</div><div>\(F(x)=\begin{cases}0 & x&lt;0\\ \frac{8x-x^2}{16} & 0\le x\le 4\\ 1 & x&gt;4\end{cases}\) · Check: F(0) = 0 and F(4) = 1 ✓</div></div>
+<div class="part"><div class="h">d. μ and σ²</div>
+<div class="lab">Working</div><div>\(\mu=\tfrac18\int_0^4(4x-x^2)dx=\tfrac18\left(32-\tfrac{64}{3}\right)=\tfrac43\) · \(\E(X^2)=\tfrac18\int_0^4(4x^2-x^3)dx=\tfrac18\left(\tfrac{256}{3}-64\right)=\tfrac83\)<br>σ² = 8/3 − (4/3)² = 8/9</div>
+<div class="lab ok">Answer</div><div><span class="ans">μ = 1.3333 s, σ² = 0.8889 s²</span></div></div>
+<div class="part"><div class="h">e. Median</div>
+<div class="lab">Working</div><div>F(m) = 0.5 → 8m − m² = 8 → m² − 8m + 8 = 0 → m = 4 ± √8. Only 4 − √8 lies in [0, 4].</div>
+<div class="lab ok">Answer</div><div><span class="ans">m = 1.1716 s</span> (median &lt; mean: the density decreases, so the distribution is skewed right)</div></div>
+
+<div class="solhead">8. (Bonus) Exponential: mean 200 h → λ = 1/200</div>
+<div class="part"><div class="h">a–c</div>
+<div class="lab">Working</div><div>P(X &lt; 100) = 1 − e^(−100/200) · P(X &gt; 300) = e^(−1.5) · P(150 &lt; X &lt; 250) = e^(−0.75) − e^(−1.25)</div>
+<div class="lab ok">Answer</div><div><span class="ans">0.3935 · 0.2231 · 0.1859</span></div></div>
+<div class="part"><div class="h">d. P(X &gt; 500 | X &gt; 200)</div>
+<div class="lab">Method</div><div>Memoryless: only the extra 300 hours count.</div>
+<div class="lab ok">Answer</div><div>e^(−300/200) = <span class="ans">0.2231</span>, the same as (b)</div></div>
+<div class="part"><div class="h">e–f. Median and 90th percentile</div>
+<div class="lab">Working</div><div>Solve 1 − e^(−x/200) = p → x = −200 ln(1 − p). p = 0.5 → 200 ln 2. p = 0.9 → −200 ln 0.1.</div>
+<div class="lab ok">Answer</div><div><span class="ans">median = 138.63 h · 90% by 460.52 h</span></div></div>
+
+<h3>Mark yourself</h3>
+<table class="full small"><tbody>
+<tr><td>Lost marks on Q1</td><td>Re-read the scale decision steps ({{p:s1-scale}}) and the traps on °C, years and port numbers.</td></tr>
+<tr><td>Lost marks on Q2</td><td>Did you sort first? Did you use sx? Did you stop the whiskers at the last value inside the fences?</td></tr>
+<tr><td>Lost marks on Q4–Q6</td><td>Check Tab X: 1 − CD(k − 1) for "at least", rescaling λ, σ = √variance, left area for "or faster".</td></tr>
+</tbody></table>
+</section>

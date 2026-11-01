@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="175" viewBox="0 0 640 175" font-family="DejaVu Sans, sans-serif" font-size="11">
+<line x1="53.2" y1="10" x2="53.2" y2="133" stroke="#b3261e" stroke-dasharray="4,3"/>
+<text x="53.2" y="9" fill="#b3261e" text-anchor="middle">LL = 7</text>
+<line x1="238.8" y1="10" x2="238.8" y2="133" stroke="#b3261e" stroke-dasharray="4,3"/>
+<text x="238.8" y="9" fill="#b3261e" text-anchor="middle">UL = 23</text>
+<line x1="99.6" y1="87" x2="122.8" y2="87" stroke="#000" stroke-width="1.6"/>
+<line x1="169.2" y1="87" x2="180.8" y2="87" stroke="#000" stroke-width="1.6"/>
+<line x1="99.6" y1="77" x2="99.6" y2="97" stroke="#000" stroke-width="1.6"/>
+<line x1="180.8" y1="77" x2="180.8" y2="97" stroke="#000" stroke-width="1.6"/>
+<rect x="122.8" y="70.0" width="46.4" height="34" fill="#dfe7f3" stroke="#1f3b63" stroke-width="1.8"/>
+<line x1="146.0" y1="70.0" x2="146.0" y2="104.0" stroke="#1f3b63" stroke-width="2.6"/>
+<line x1="99.6" y1="67.0" x2="99.6" y2="70.0" stroke="#999" stroke-width="0.6"/>
+<text x="99.6" y="65.0" text-anchor="middle" font-size="10" fill="#1f3b63">min=11</text>
+<line x1="122.8" y1="54.0" x2="122.8" y2="70.0" stroke="#999" stroke-width="0.6"/>
+<text x="122.8" y="52.0" text-anchor="middle" font-size="10" fill="#1f3b63">Q1=13</text>
+<line x1="146.0" y1="67.0" x2="146.0" y2="70.0" stroke="#999" stroke-width="0.6"/>
+<text x="146.0" y="65.0" text-anchor="middle" font-size="10" fill="#1f3b63">Q2=15</text>
+<line x1="169.2" y1="54.0" x2="169.2" y2="70.0" stroke="#999" stroke-width="0.6"/>
+<text x="169.2" y="52.0" text-anchor="middle" font-size="10" fill="#1f3b63">Q3=17</text>
+<line x1="180.8" y1="41.0" x2="180.8" y2="70.0" stroke="#999" stroke-width="0.6"/>
+<text x="180.8" y="39.0" text-anchor="middle" font-size="10" fill="#1f3b63">max*=18</text>
+<text x="528.8" y="92" text-anchor="middle" font-size="16" fill="#b3261e">*</text>
+<text x="528.8" y="109" text-anchor="middle" font-size="10" fill="#b3261e">48</text>
+<text x="575.2" y="92" text-anchor="middle" font-size="16" fill="#b3261e">*</text>
+<text x="575.2" y="109" text-anchor="middle" font-size="10" fill="#b3261e">52</text>
+<line x1="30" y1="143" x2="610" y2="143" stroke="#333"/>
+<line x1="30.0" y1="143" x2="30.0" y2="148" stroke="#333"/><text x="30.0" y="161" text-anchor="middle" font-size="10">5</text>
+<line x1="88.0" y1="143" x2="88.0" y2="148" stroke="#333"/><text x="88.0" y="161" text-anchor="middle" font-size="10">10</text>
+<line x1="146.0" y1="143" x2="146.0" y2="148" stroke="#333"/><text x="146.0" y="161" text-anchor="middle" font-size="10">15</text>
+<line x1="204.0" y1="143" x2="204.0" y2="148" stroke="#333"/><text x="204.0" y="161" text-anchor="middle" font-size="10">20</text>
+<line x1="262.0" y1="143" x2="262.0" y2="148" stroke="#333"/><text x="262.0" y="161" text-anchor="middle" font-size="10">25</text>
+<line x1="320.0" y1="143" x2="320.0" y2="148" stroke="#333"/><text x="320.0" y="161" text-anchor="middle" font-size="10">30</text>
+<line x1="378.0" y1="143" x2="378.0" y2="148" stroke="#333"/><text x="378.0" y="161" text-anchor="middle" font-size="10">35</text>
+<line x1="436.0" y1="143" x2="436.0" y2="148" stroke="#333"/><text x="436.0" y="161" text-anchor="middle" font-size="10">40</text>
+<line x1="494.0" y1="143" x2="494.0" y2="148" stroke="#333"/><text x="494.0" y="161" text-anchor="middle" font-size="10">45</text>
+<line x1="552.0" y1="143" x2="552.0" y2="148" stroke="#333"/><text x="552.0" y="161" text-anchor="middle" font-size="10">50</text>
+<line x1="610.0" y1="143" x2="610.0" y2="148" stroke="#333"/><text x="610.0" y="161" text-anchor="middle" font-size="10">55</text>
+<text x="610" y="173" text-anchor="end" font-size="10">ms</text>
+<text x="30" y="173" font-size="10">* outlier · whisker ends at the last value inside the fences (max*)</text>
+</svg>

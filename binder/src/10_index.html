@@ -1,0 +1,37 @@
+<section>
+<anchor id="I" label="I · Problem-type Index"/>
+<h2 class="sec">I · Problem-type index</h2>
+<p>Find the phrase in the question, then go to the page.</p>
+<table class="full idx">
+<thead><tr><th>The question says …</th><th>Method</th><th>Page</th></tr></thead>
+<tbody>
+<tr class="grp"><td colspan="3">Data and variables</td></tr>
+<tr><td>"jenis variabel", "skala pengukuran", list of variables</td><td>qualitative/quantitative + nominal/ordinal/interval/ratio</td><td>{{p:s1-scale}}</td></tr>
+<tr><td>"mean, median, modus" of a data list</td><td>\(\bar x=\sum x/n\); median at position \(0.5(n+1)\)</td><td>{{p:s1-mean}}</td></tr>
+<tr><td>"varians / standar deviasi" of data</td><td>\(s^2\) with n − 1; STAT mode <b>sx</b></td><td>{{p:s1-var}}</td></tr>
+<tr><td>"coefficient of variation / koefisien variasi", "lebih stabil"</td><td>CV = s / x̄ × 100%</td><td>{{p:s1-cv}}</td></tr>
+<tr><td>"five number summary", "IQR", "kuartil"</td><td>Q1, Q3 at positions 0.25(n+1), 0.75(n+1)</td><td>{{p:s1-quart}}</td></tr>
+<tr><td>"stem and leaf", "boxplot", "outlier / pencilan"</td><td>fences Q1 − 1.5·IQR and Q3 + 1.5·IQR</td><td>{{p:s1-box}}</td></tr>
+<tr><td>"at least what proportion within k SD", "mound-shaped"</td><td>Chebyshev \(1-1/k^2\) / empirical 68–95–99.7</td><td>{{p:s1-cheb}}</td></tr>
+<tr class="grp"><td colspan="3">Probability</td></tr>
+<tr><td>a two-way table of counts</td><td>joint = cell/N; marginal = total/N; conditional = cell/given total</td><td>{{p:s2-table}}</td></tr>
+<tr><td>"… <b>atau</b> …" (or)</td><td>\(\P(A\cup B)=\P(A)+\P(B)-\P(A\cap B)\)</td><td>{{p:s2-union}}</td></tr>
+<tr><td>"<b>jika diketahui</b> …" (given that)</td><td>\(\P(A\mid B)=\P(A\cap B)/\P(B)\)</td><td>{{p:s2-cond}}</td></tr>
+<tr><td>"apakah … independen / saling bebas?"</td><td>compare \(\P(A\mid B)\) with \(\P(A)\)</td><td>{{p:s2-indep}}</td></tr>
+<tr><td>machines with % share and % defect, "it is defective; which machine?"</td><td>total probability, then Bayes</td><td>{{p:s2-total}}</td></tr>
+<tr><td>"berapa banyak cara", committee, arrangement</td><td>mn rule, \(P^n_r\), \(C^n_r\)</td><td>{{p:s2-count}}</td></tr>
+<tr class="grp"><td colspan="3">Distributions</td></tr>
+<tr><td>table of x and P(x), unknown k, E(X), Var(X)</td><td>\(\sum p=1\); \(\sum xp\); \(\sum x^2p-\mu^2\)</td><td>{{p:s3-pmf}}</td></tr>
+<tr><td>"<b>x% gagal/cacat</b>, dipilih n secara acak"</td><td><b>Binomial</b> B(n, p)</td><td>{{p:s3-binom}}</td></tr>
+<tr><td>"<b>rata-rata λ per</b> jam/menit/halaman"</td><td><b>Poisson</b>(λ), rescale λ to the interval</td><td>{{p:s3-pois}}</td></tr>
+<tr><td>"tanpa pengembalian" from a small lot</td><td>Hypergeometric</td><td>{{p:s3-hyper}}</td></tr>
+<tr><td>"rata-rata μ dan <b>varians</b> σ²" (bell-shaped measurement)</td><td><b>Normal</b>: σ = √varians, then z</td><td>{{p:s5-z}}</td></tr>
+<tr><td>"agar 97% … dalam waktu tersebut", "top 5%"</td><td>work backwards: \(x=\mu+z\sigma\)</td><td>{{p:s5-back}}</td></tr>
+<tr><td>Binomial with large n, "pendekatan normal"</td><td>continuity correction ±0.5</td><td>{{p:s5-approx}}</td></tr>
+<tr><td>"buktikan f(x) pdf", "tentukan k", P(a ≤ X ≤ b) from f(x)</td><td>\(f\ge0\), \(\int f=1\); integrate</td><td>{{p:s4-pdf}}</td></tr>
+<tr><td>cdf F(x), median/percentile of a pdf, E and Var of a pdf</td><td>\(F=\int f\); solve \(F(\eta)=p\); \(\int xf\)</td><td>{{p:s4-cdf}}</td></tr>
+<tr><td>"seragam" on [A, B]</td><td>Uniform</td><td>{{p:s4-unif}}</td></tr>
+<tr><td>"waktu tunggu / umur", "rata-rata waktu …"</td><td><b>Exponential</b>, λ = 1/mean</td><td>{{p:s6-exp}}</td></tr>
+<tr><td>Y = g(X)</td><td>cdf method</td><td>{{p:s6-func}}</td></tr>
+</tbody></table>
+</section>

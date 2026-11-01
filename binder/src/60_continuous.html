@@ -1,0 +1,100 @@
+<section>
+<anchor id="S4" label="4 · Continuous Random Variables"/>
+<h2 class="sec">4 · Continuous random variables <span style="font-weight:normal;font-size:10pt">(Sessions 9–12, Devore Ch. 4)</span></h2>
+<p>X takes any real value in an interval <span class="id">(bilangan real, dinyatakan dalam interval / range)</span>: midterm score 0 ≤ x ≤ 100, height 140 ≤ y ≤ 200, room temperature 20 ≤ z ≤ 38.</p>
+<anchor id="s4-pdf"/>
+<div class="two"><div>
+<h3>Probability density function (pdf)</h3>
+<div class="box">
+\[\P(a\le X\le b)=\int_a^b f(x)\,dx\quad(\text{area under } f)\]
+<b>f is a valid pdf iff</b> <span class="id">(syarat pdf)</span>:<br>
+(1) \(f(x)\ge 0\) for all x, and (2) \(\int_{-\infty}^{\infty}f(x)\,dx=1\).<br>
+<b>Consequences</b>: \(\P(X=a)=0\), so<br>
+\(\P(a\le X\le b)=\P(a&lt;X&lt;b)=\P(a\le X&lt;b)=\dots\)<br>
+f(x) itself is <b>not</b> a probability and can be &gt; 1.</div>
+</div><div>
+<h3>"Buktikan … pdf" / "find c": template</h3>
+<ol class="small">
+<li>State that f(x) ≥ 0 on the support (e.g. "e^(·) &gt; 0 and 0.15 &gt; 0", or check the endpoints of a linear f).</li>
+<li>Integrate over the support only (f = 0 elsewhere): \(\int_{-\infty}^{\infty}f=\int_{\text{support}}f+\int_{\text{elsewhere}}0\).</li>
+<li>Show the result = 1 (or solve c from "= 1").</li>
+<li>Conclude: "∴ f(x) merupakan pdf" (∴ f(x) is a pdf).</li>
+</ol>
+<div class="warn">If ∫ f ≠ 1, the function is <b>not</b> a pdf. Do not "fix" it by dividing by the total area unless the question says f is proportional to … (∝). See the class example on {{p:s4-ex}}.</div>
+</div></div>
+
+<div class="ex"><span class="src">class board / Devore Ex. 4.5</span><span class="t">Contoh soal 1: prove that \(f(x)=0.15e^{-0.15(x-0.5)}\) for x ≥ 0.5 (0 otherwise) is a pdf.</span> (time headway between cars)<br>
+(1) For x ≥ 0.5, 0.15 &gt; 0 and the exponential is &gt; 0, so f(x) ≥ 0. Elsewhere f = 0 ≥ 0.<br>
+(2) \(\displaystyle\int_{-\infty}^{\infty}f(x)dx=\int_{0.5}^{\infty}0.15e^{-0.15(x-0.5)}dx=\Big[-e^{-0.15(x-0.5)}\Big]_{0.5}^{\infty}=0-(-e^{0})=1\) ✓ ∴ f is a pdf.<br>
+<b>Extra:</b> P(X ≤ 5) = \(\big[-e^{-0.15(x-0.5)}\big]_{0.5}^{5}=1-e^{-0.675}=\mathbf{0.4908}\). cdf: \(F(x)=1-e^{-0.15(x-0.5)}\) for x ≥ 0.5. This is an exponential distribution with λ = 0.15 shifted right by 0.5, so E(X) = 0.5 + 1/0.15 = 7.1667 and Var(X) = 1/0.15² = 44.44.</div>
+
+<anchor id="s4-cdf"/>
+<h3>Cumulative distribution function (cdf) <span class="id">(fungsi kumulatif)</span></h3>
+<div class="two"><div class="box">
+\[F(x)=\P(X\le x)=\int_{-\infty}^{x}f(t)\,dt\]
+\(\P(a\le X\le b)=F(b)-F(a)\) · \(\P(X&gt;a)=1-F(a)\)<br>
+\(f(x)=F'(x)\) wherever the derivative exists<br>
+F is continuous and non-decreasing, with F(−∞) = 0 and F(∞) = 1.</div>
+<div class="box small"><b>Writing a piecewise cdf</b> (support [A, B]):
+\(F(x)=\begin{cases}0 & x&lt;A\\ \int_A^x f(t)\,dt & A\le x\le B\\ 1 & x&gt;B\end{cases}\)<br>
+Check: the middle piece must be 0 at x = A and 1 at x = B.</div></div>
+<div class="ex"><span class="src">slides / Devore Ex. 4.7</span><span class="t">Gravel sales (tons/week): \(f(x)=1.5(1-x^2)\), 0 ≤ x ≤ 1.</span><br>
+\(F(x)=\int_0^x 1.5(1-t^2)dt=1.5\left(x-\dfrac{x^3}{3}\right)\) for 0 ≤ x ≤ 1 (0 below, 1 above).<br>
+P(X ≤ 0.25) = 1.5(0.25 − 0.005208) = <b>0.3672</b>; P(X &gt; 0.75) = 1 − 1.5(0.75 − 0.140625) = <b>0.0859</b>; P(0.25 &lt; X &lt; 0.75) = 0.9141 − 0.3672 = <b>0.5469</b><br>
+E(X) = \(\int_0^1 x\cdot1.5(1-x^2)dx=1.5\left(\tfrac12-\tfrac14\right)=\mathbf{0.375}\); E(X²) = 1.5(1/3 − 1/5) = 0.2; Var = 0.2 − 0.375² = <b>0.0594</b>; σ = 0.2437</div>
+
+<anchor id="s4-pct"/>
+<h3>Percentiles and the median</h3>
+<div class="two"><div class="box">
+The (100p)-th percentile η(p) solves \(F(\eta(p))=p\).<br>
+Median \(\tilde\mu\): \(F(\tilde\mu)=0.5\). Quartiles: F = 0.25 and F = 0.75.<br>
+For a symmetric pdf, median = mean = centre of symmetry.</div>
+<div class="ex small"><span class="t">Gravel, 40th percentile:</span> 1.5(η − η³/3) = 0.4 → η³ − 3η + 0.8 = 0 → <b>η = 0.2735</b> (SHIFT SOLVE, start at 0.3). Median: 1.5(m − m³/3) = 0.5 → m = 0.3473.</div></div>
+</section>
+
+<section>
+<anchor id="s4-ev"/>
+<h3>Expected value and variance (continuous)</h3>
+<div class="two"><div class="box">
+\[\mu=\E(X)=\int_{-\infty}^{\infty}x\,f(x)\,dx\]\[\E[h(X)]=\int h(x)f(x)\,dx\]
+\[\sigma^2=\Var(X)=\int(x-\mu)^2f(x)\,dx=\E(X^2)-\mu^2\]
+\(\E(X^2)=\int x^2f(x)\,dx\) · the rules for aX + b are the same as in the discrete case.</div>
+<div class="tip">Each integral runs over the <b>support only</b>. Remember the extra x (or x²) inside. The most common slip is computing ∫ f(x) dx (= 1) when you meant ∫ x·f(x) dx.</div></div>
+
+<anchor id="s4-unif"/>
+<h3>Uniform distribution <span class="id">(distribusi seragam)</span>: X ~ U[A, B]</h3>
+<div class="two"><div class="box">
+\(f(x)=\dfrac{1}{B-A}\) for A ≤ x ≤ B · \(F(x)=\dfrac{x-A}{B-A}\)<br>
+\(\P(c\le X\le d)=\dfrac{d-c}{B-A}\) (length ratio)<br>
+\(\E(X)=\dfrac{A+B}{2}\), \(\Var(X)=\dfrac{(B-A)^2}{12}\), median = (A + B)/2</div>
+<div class="ex small"><span class="t">Tire imperfection angle (slides):</span> X ~ U[0, 360). P(within 90° of the reference line) = P(0 ≤ X ≤ 90) + P(270 ≤ X &lt; 360) = 90/360 + 90/360 = <b>0.5</b>.<br>
+<span class="t">Bus every 20 min:</span> wait W ~ U[0, 20]. P(W &gt; 15) = 5/20 = 0.25. E = 10 min, Var = 400/12 = 33.33.</div></div>
+
+<anchor id="s4-ex"/>
+<div class="ex"><span class="src">class board, contoh soal 2</span><span class="t">Given f(x) = 0,075x + 0,2 for 3 ≤ x ≤ 5 (0 otherwise). Find a) P(X ≤ 4) b) P(X &gt; 4) c) P(3.5 ≤ X ≤ 4.5) d) P(X &gt; 4.5) e) μ f) σ².</span>
+<p class="small"><b>Note:</b> the board reads "0,75x", but that integrates to 6.4 over [3, 5], so it is not a valid pdf. With <b>0,075</b> the integral is exactly 1, which is clearly what was intended. In class the students divided by 6.4 instead. That gives different numbers, e.g. 0.441 vs 0.4625 for (a).</p>
+<b>Validity:</b> f(3) = 0.425 &gt; 0 and f(5) = 0.575 &gt; 0, and f is linear, so f ≥ 0 on [3, 5].
+\(\int_3^5(0.075x+0.2)dx=\big[0.0375x^2+0.2x\big]_3^5=(0.9375+1)-(0.3375+0.6)=1\) ✓<br>
+<b>Antiderivative</b> G(x) = 0.0375x² + 0.2x. <b>cdf</b>: F(x) = 0.0375x² + 0.2x − 0.9375 for 3 ≤ x ≤ 5.
+<table class="full small" style="margin-top:1mm">
+<tbody>
+<tr><td>a) P(X ≤ 4)</td><td>\(\int_3^4 f = G(4)-G(3)=1.4-0.9375\)</td><td class="ans">0.4625</td></tr>
+<tr><td>b) P(X &gt; 4)</td><td>\(\int_4^5 f + \int_5^\infty 0 = 1.9375-1.4\) (or 1 − 0.4625)</td><td class="ans">0.5375</td></tr>
+<tr><td>c) P(3.5 ≤ X ≤ 4.5)</td><td>\(G(4.5)-G(3.5)=1.659375-1.159375\)</td><td class="ans">0.5000</td></tr>
+<tr><td>d) P(X &gt; 4.5)</td><td>\(G(5)-G(4.5)=1.9375-1.659375\)</td><td class="ans">0.2781</td></tr>
+<tr><td>e) μ</td><td>\(\int_3^5 x(0.075x+0.2)dx=\big[0.025x^3+0.1x^2\big]_3^5=(3.125+2.5)-(0.675+0.9)\)</td><td class="ans">4.05</td></tr>
+<tr><td>E(X²)</td><td>\(\int_3^5 x^2(0.075x+0.2)dx=\big[0.01875x^4+\tfrac{0.2}{3}x^3\big]_3^5=(11.71875+8.3333)-(1.51875+1.8)\)</td><td>16.7333</td></tr>
+<tr><td>f) σ²</td><td>\(16.7333-4.05^2=16.7333-16.4025\)</td><td class="ans">0.3308</td></tr>
+<tr><td>(extra) median</td><td>\(F(m)=0.5\Rightarrow 0.0375m^2+0.2m-1.4375=0\Rightarrow m=\frac{-0.2+\sqrt{0.04+0.215625}}{0.075}\)</td><td>4.0746</td></tr>
+</tbody></table>
+<span class="small">Sanity check: the density increases with x, so the mean (4.05) is a little right of the midpoint 4, and P(X &gt; 4) &gt; 0.5. ✓</span></div>
+
+<h3>Discrete ↔ continuous dictionary</h3>
+<table class="full small"><thead><tr><th></th><th>Discrete</th><th>Continuous</th></tr></thead><tbody>
+<tr><td>probability function</td><td>pmf p(x) = P(X = x)</td><td>pdf f(x); P(X = x) = 0</td></tr>
+<tr><td>total</td><td>Σ p(x) = 1</td><td>∫ f(x) dx = 1</td></tr>
+<tr><td>cdf</td><td>F(x) = Σ<sub>y≤x</sub> p(y) (steps)</td><td>F(x) = ∫<sub>−∞</sub><sup>x</sup> f (smooth)</td></tr>
+<tr><td>mean / E(X²)</td><td>Σ x p(x) / Σ x² p(x)</td><td>∫ x f(x) dx / ∫ x² f(x) dx</td></tr>
+<tr><td>≤ vs &lt;</td><td><b>matters</b></td><td>does not matter</td></tr>
+</tbody></table>
+</section>

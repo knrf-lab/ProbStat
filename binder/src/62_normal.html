@@ -1,0 +1,85 @@
+<section>
+<anchor id="S5" label="5 · Normal Distribution"/>
+<anchor id="s5-norm"/>
+<h2 class="sec">5 · Normal distribution <span class="id" style="color:#fff">(distribusi normal)</span></h2>
+<div class="two"><div class="box">
+\(X\sim N(\mu,\sigma^2)\) with parameters μ (mean, −∞ &lt; μ &lt; ∞) and <b>σ² (variance) &gt; 0</b>. Domain (−∞, ∞).
+\[f(x)=\frac{1}{\sqrt{2\pi\sigma^2}}\,e^{-\frac12\left(\frac{x-\mu}{\sigma}\right)^2}\]
+\(\P(X\le x)=\int_{-\infty}^{x}f(t)\,dt\). This has no closed form, so we standardize and use the z-table (or Normal CD).<br>
+The curve is bell-shaped and symmetric about μ: mean = median = mode. A larger σ makes it wider and flatter.</div>
+<div>
+<div class="warn"><b>N(500, 64) means σ² = 64, so σ = 8.</b> The class writes the variance as the second parameter. Always take the square root before standardizing. If the question says "simpangan baku 8", then σ = 8 directly.</div>
+<div class="box small"><b>Empirical rule</b>: P(|Z| ≤ 1) = 0.6826, P(|Z| ≤ 2) = 0.9544, P(|Z| ≤ 3) = 0.9974.<br>
+<b>Symmetry</b>: Φ(−z) = 1 − Φ(z); P(Z &gt; z) = Φ(−z).</div></div></div>
+
+<anchor id="s5-z"/>
+<h3>Standard normal Z ~ N(0, 1) <span class="id">(normal baku)</span> and how to use the table</h3>
+<div class="two"><div class="box">
+\[Z=\frac{X-\mu}{\sigma}\sim N(0,1),\qquad f(z)=\frac{1}{\sqrt{2\pi}}e^{-z^2/2}\]
+<b>Steps (class board)</b>:<br>
+1. Convert x to z: \(z=(x-\mu)/\sigma\)<br>
+2. Round z to <b>2 decimals</b> <span class="id">(Z hanya boleh 2 desimal)</span><br>
+3. Read Φ(z) = area to the <b>left</b> from Tab T ({{p:T}}).</div>
+<table class="full small">
+<thead><tr><th>Asked</th><th>Use</th></tr></thead><tbody>
+<tr><td>\(\P(X&lt;x)=\P(X\le x)\)</td><td>\(\Phi(z)\) directly <span class="id">(langsung lihat tabel)</span></td></tr>
+<tr><td>\(\P(X&gt;x)=\P(X\ge x)\)</td><td>\(1-\Phi(z)\)</td></tr>
+<tr><td>\(\P(a&lt;X&lt;b)\)</td><td>\(\Phi(z_b)-\Phi(z_a)\)</td></tr>
+<tr><td>\(\P(X=x)\)</td><td><b>0</b> (continuous)</td></tr>
+<tr><td>z &gt; 3.49 (off the table)</td><td>Φ(z) ≈ 1</td></tr>
+<tr><td>z &lt; −3.49</td><td>Φ(z) ≈ 0</td></tr>
+</tbody></table></div>
+
+<anchor id="s5-ex"/>
+<div class="ex"><span class="src">class board</span><span class="t">Semiconductor thickness: mean 500 nm, variance 64 → X ~ N(500, 64), σ = 8. Spec is 485–515 nm.</span><br>
+1. \(\P(485\le X\le 515)\): \(z=\frac{485-500}{8}=-1.875\to -1.88\), \(z=\frac{515-500}{8}=1.875\to 1.88\)<br>
+&nbsp;&nbsp;= Φ(1.88) − Φ(−1.88) = 0.9699 − 0.0301 = <b>0.9398</b> (Normal CD / ∫ gives 0.9392)<br>
+2. \(\P(X\le 510)\): z = 10/8 = 1.25 → Φ(1.25) = <b>0.8944</b></div>
+<div class="ex"><span class="src">class problem "17"</span><span class="t">X ~ N(15015, 3540²), so σ = 3540.</span><br>
+a) P(X &gt; 18000): z = 2985/3540 = 0.84 → 1 − 0.7995 = <b>0.2005</b><br>
+b) P(X &lt; 10000): z = −5015/3540 = −1.42 → <b>0.0778</b><br>
+c) P(12000 &lt; X &lt; 18000): z = −0.85 and 0.84 → 0.7995 − 0.1977 = <b>0.6018</b> (exact 0.6033)<br>
+d) P(X ≤ 14000): z = −1015/3540 = −0.29 → <b>0.3859</b> (exact 0.3872)</div>
+<div class="ex"><span class="src">class board</span><span class="t">X ~ N(8.46, 0.84): σ² = 0.84, so σ = √0.84 = 0.9165.</span><br>
+P(8 ≤ X ≤ 10): z = (10 − 8.46)/0.9165 = 1.68, z = (8 − 8.46)/0.9165 = −0.50 → 0.9535 − 0.3085 = <b>0.6450</b><br>
+P(X ≥ 10) = 1 − 0.9535 = <b>0.0465</b> · P(X &gt; 15): z = 7.14 &gt; 3.49 → ≈ <b>0</b><br>
+<span class="small">(The board used σ = 0.913, which gives z = 1.69, 0.6460 and 0.0455. Use √0.84 = 0.9165.)</span></div>
+<div class="ex"><span class="t">Slides:</span> X ~ N(5, 2²): P(X &gt; 7) = 1 − Φ(1) = 0.1587. Ground beef N(1, 0.10²): P(0.80 &lt; X &lt; 0.85) = Φ(−1.5) − Φ(−2) = 0.0668 − 0.0228 = <b>0.0440</b>.</div>
+</section>
+
+<section>
+<anchor id="s5-back"/>
+<h3>Working backwards: percentiles <span class="id">(mencari nilai x dari peluang)</span></h3>
+<div class="two"><div class="box">
+1. Turn the statement into a <b>left</b> area: "top 1%" or "only 1% exceed" → left area 0.99.<br>
+2. Find z in the <b>body</b> of the table with area closest to it. If it is halfway between two entries, average the z values.<br>
+3. \(x=\mu+z\sigma\). In general \(\eta(p)=\mu+z_p\,\sigma\).</div>
+<table class="full small"><thead><tr><th>Left area</th><th>z</th><th>Left area</th><th>z</th></tr></thead><tbody>
+<tr><td>0.01</td><td>−2.33</td><td>0.90</td><td>1.28</td></tr>
+<tr><td>0.025</td><td>−1.96</td><td>0.95</td><td>1.645</td></tr>
+<tr><td>0.05</td><td>−1.645</td><td>0.975</td><td>1.96</td></tr>
+<tr><td>0.10</td><td>−1.28</td><td>0.99</td><td>2.33</td></tr>
+<tr><td>0.25 (Q1)</td><td>−0.67</td><td>0.995</td><td>2.58</td></tr>
+<tr><td>0.50</td><td>0</td><td>0.75 (Q3)</td><td>0.67</td></tr>
+</tbody></table></div>
+<div class="ex"><span class="t">Slides:</span> the z with 0.05 to its right: left area 0.95 is halfway between 0.9495 (1.64) and 0.9505 (1.65), so z = <b>1.645</b>.<br>
+Ground beef, a weight that only 1% exceed: z = 2.33 → x = 1 + 2.33(0.10) = <b>1.233 lb</b> (Inverse Normal: 1.2326).<br>
+Semiconductor: thickness of the thinnest 10%: x = 500 − 1.28(8) = <b>489.76 nm</b>.</div>
+
+<anchor id="s5-approx"/>
+<h3>Normal approximation to the Binomial</h3>
+<div class="two"><div class="box">
+If X ~ B(n, p) with <b>np ≥ 5 and n(1 − p) ≥ 5</b> (slides: "both greater than 5"; Devore uses 10), then X ≈ N(μ = np, σ² = np(1 − p)).<br>
+<b>Continuity correction</b>: each integer k covers [k − 0.5, k + 0.5].</div>
+<table class="full small"><thead><tr><th>Binomial</th><th>Normal (with correction)</th></tr></thead><tbody>
+<tr><td>P(X ≤ k)</td><td>P(Y ≤ k + 0.5)</td></tr>
+<tr><td>P(X &lt; k)</td><td>P(Y ≤ k − 0.5)</td></tr>
+<tr><td>P(X ≥ k)</td><td>P(Y ≥ k − 0.5)</td></tr>
+<tr><td>P(X &gt; k)</td><td>P(Y ≥ k + 0.5)</td></tr>
+<tr><td>P(X = k)</td><td>P(k − 0.5 ≤ Y ≤ k + 0.5)</td></tr>
+<tr><td>P(a ≤ X ≤ b)</td><td>P(a − 0.5 ≤ Y ≤ b + 0.5)</td></tr>
+</tbody></table></div>
+<div class="ex"><span class="t">Slides:</span> n = 30, p = 0.4: np = 12, nq = 18, so the approximation is OK. σ = √7.2 = 2.683. P(X ≤ 10) ≈ P(Y ≤ 10.5) = Φ((10.5 − 12)/2.683) = Φ(−0.56) = <b>0.2877</b> (exact Binomial 0.2915).<br>
+Batteries: n = 200, p = 0.95: np = 190, nq = 10, so OK. σ = √9.5 = 3.082. P(X ≥ 195) ≈ P(Y ≥ 194.5) = 1 − Φ(1.46) = 1 − 0.9279 = <b>0.0721</b> (exact 0.0623; nq is small, so the approximation is rough).</div>
+<div class="tip">You have Binomial CD in DIST mode. If the question explicitly says "gunakan pendekatan normal" (use the normal approximation), do the approximation. Otherwise give the exact Binomial and mention the approximation as a check.</div>
+</section>

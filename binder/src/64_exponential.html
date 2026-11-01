@@ -1,0 +1,46 @@
+<section>
+<anchor id="S6" label="6 · Exponential &amp; Functions of RVs"/>
+<anchor id="s6-exp"/>
+<h2 class="sec">6 · Exponential distribution <span class="id" style="color:#fff">(distribusi eksponensial)</span></h2>
+<div class="two"><div class="box">
+\(X\sim \mathrm{Exp}(\lambda)\), where λ &gt; 0 is the <b>rate</b> <span class="id">(laju)</span>. Domain x ≥ 0.
+\[f(x)=\lambda e^{-\lambda x},\ x\ge 0\qquad F(x)=1-e^{-\lambda x}\]
+\(\P(X&gt;x)=e^{-\lambda x}\) · \(\P(a\le X\le b)=e^{-\lambda a}-e^{-\lambda b}\)<br>
+\(\E(X)=\dfrac1\lambda\), \(\Var(X)=\dfrac1{\lambda^2}\), σ = mean<br>
+Median \(=\dfrac{\ln 2}{\lambda}\approx 0.693\times\text{mean}\) (less than the mean, because it is skewed right)<br>
+Used for waiting times, lifetimes, and time between events.</div>
+<div>
+<div class="warn"><b>"Rata-rata waktu 90 menit" is the MEAN, so λ = 1/90 per minute.</b> The class board first wrote "λ = rata-rata", then corrected it to E(X) = 1/λ. If you are given a <i>rate</i> ("3 per jam", 3 per hour), then λ = 3 and the mean is 1/3 hour.</div>
+<div class="box small"><b>Link to Poisson</b>: if events occur at rate λ per unit time (a Poisson process), the time T until the next event is Exp(λ):<br>
+\(\P(T&gt;t)=\P(\text{0 events in }[0,t])=e^{-\lambda t}\).<br>
+Example: 2 calls per hour. P(wait more than 1 hour) = e⁻² = 0.1353. P(next call within 15 min) = 1 − e^(−2·0.25) = 0.3935.</div></div></div>
+
+<div class="ex"><span class="src">class board</span><span class="t">The time to finish a statistics exam has mean 90 minutes. X ~ Exp(λ = 1/90).</span><br>
+1. "dalam waktu 88 menit" (in 88 minutes). The board wrote P(X = 88) = f(88). For a continuous X, <b>P(X = 88) = 0</b>, and f(88) = (1/90)e^(−88/90) = 0.00418 is a <i>density</i>, not a probability. The sensible reading is "within 88 minutes": P(X ≤ 88) = 1 − e^(−88/90) = <b>0.6239</b>. On the exam, write which reading you used. If they insist on f(88), give 0.00418 and add "(density, P(X = 88) = 0)".<br>
+2. P(X &lt; 100) = F(100) = 1 − e^(−100/90) = <b>0.6708</b><br>
+3. P(X &gt; 75) = 1 − F(75) = e^(−75/90) = <b>0.4346</b><br>
+Median time = 90 ln 2 = 62.38 min.</div>
+
+<anchor id="s6-mem"/>
+<h3>Memoryless property</h3>
+<div class="two"><div class="box">
+\[\P(X\ge t+t_0\mid X\ge t_0)=\P(X\ge t)=e^{-\lambda t}\]
+How long it has already lasted does not matter. Only the <b>additional</b> time t counts.</div>
+<div class="ex small"><span class="t">Light bulb (Devore p.172 type):</span> mean life 1000 h. P(it lasts another 500 h given it has already lasted 1000 h) = e^(−500/1000) = <b>0.6065</b>, the same as for a new bulb.<br>
+Exam: P(X &gt; 120 | X &gt; 60) = e^(−60/90) = 0.5134.</div></div>
+
+<anchor id="s6-func"/>
+<h3>Functions of a continuous random variable: Y = g(X)</h3>
+<div class="two"><div class="box small">
+<b>CDF method</b> (always works):<br>
+1. Find the range of Y.<br>
+2. \(F_Y(y)=\P(Y\le y)=\P(g(X)\le y)\). Rewrite this as an event about X and use \(F_X\).<br>
+3. \(f_Y(y)=F_Y'(y)\).<br>
+<b>Monotone g</b> (shortcut): \(f_Y(y)=f_X(g^{-1}(y))\left|\dfrac{d}{dy}g^{-1}(y)\right|\).<br>
+<b>Only E(Y) needed?</b> Use LOTUS: \(\E[g(X)]=\int g(x)f_X(x)\,dx\). There is no need for \(f_Y\).</div>
+<div class="ex small"><span class="t">Ex.</span> X ~ U(0, 1), Y = e^X. Range [1, e]. \(F_Y(y)=\P(X\le \ln y)=\ln y\), so \(f_Y(y)=1/y\) on [1, e]. E(Y) = ∫₀¹ eˣ dx = e − 1.<br>
+<span class="t">Ex.</span> X ~ U(−1, 1), Y = X². \(F_Y(y)=\P(-\sqrt y\le X\le\sqrt y)=\sqrt y\), so \(f_Y=\dfrac{1}{2\sqrt y}\) on (0, 1].<br>
+<span class="t">Linear:</span> Y = aX + b: E = aμ + b, Var = a²σ². If X is Normal, Y ~ N(aμ + b, a²σ²).<br>
+<span class="t">Ex. (reading):</span> X ~ N(2, 4), Y = 3 − 2X ~ N(−1, 16).</div></div>
+</section>
+

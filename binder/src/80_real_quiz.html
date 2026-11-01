@@ -1,0 +1,244 @@
+<section>
+<anchor id="R" label="R · Real Quiz 1, Solved"/>
+<h2 class="sec">R · Real Quiz 1 (LA40 + LB40), fully solved</h2>
+<p>These are the prof's actual questions. Questions 5 and 6 were identical in both classes. Each part is laid out as <b>Known → Method → Working → Answer → Check</b>, which is a good layout to copy onto your answer sheet.</p>
+
+<anchor id="R-LA1"/>
+<div class="solhead">LA40 · Question 1: variable type and measurement scale</div>
+<div class="qbox"><span class="qn">Soal.</span> Laboratorium Computer Engineering meneliti kinerja perangkat dengan variabel: jenis sistem kontrol, waktu respons sensor, jenis sensor, kecepatan pemrosesan data, jenis mikrokontroler, tingkat akurasi sensor, jumlah perangkat yang terhubung, status operasional mesin, konsumsi daya sistem, jenis protokol komunikasi, waktu siklus proses otomatis, suhu operasional perangkat, mode pengoperasian sistem, tingkat kesalahan pembacaan sensor, jumlah kegagalan sistem otomatis. Sebutkan jenis variabel dan skala pengukuran masing-masing.
+<div class="en">For each of the 15 variables, give the variable type and the measurement scale.</div></div>
+<p class="small">Method: the decision steps on {{p:s1-scale}}. Rule of thumb: "jenis …" (type of) is nominal, "waktu / kecepatan / daya / jumlah" is ratio, "suhu °C" is interval.</p>
+<table class="full">
+<thead><tr><th>#</th><th>Variabel</th><th>Jenis (type)</th><th>Skala</th><th>Alasan (reason)</th></tr></thead><tbody>
+<tr><td>1</td><td>Jenis sistem kontrol</td><td>Kualitatif</td><td>Nominal</td><td>categories (open-loop, closed-loop, PID) with no order</td></tr>
+<tr><td>2</td><td>Waktu respons sensor</td><td>Kuantitatif kontinu</td><td>Rasio</td><td>measured time; 0 ms = no time</td></tr>
+<tr><td>3</td><td>Jenis sensor</td><td>Kualitatif</td><td>Nominal</td><td>labels (ultrasonik, IR, suhu)</td></tr>
+<tr><td>4</td><td>Kecepatan pemrosesan data</td><td>Kuantitatif kontinu</td><td>Rasio</td><td>e.g. MB/s; 0 = no processing</td></tr>
+<tr><td>5</td><td>Jenis mikrokontroler</td><td>Kualitatif</td><td>Nominal</td><td>labels (Arduino, ESP32, STM32)</td></tr>
+<tr><td>6</td><td>Tingkat akurasi sensor</td><td>Kuantitatif kontinu</td><td>Rasio</td><td>a percentage; 0% = no accuracy. <i>If given as tinggi/sedang/rendah: kualitatif, ordinal.</i></td></tr>
+<tr><td>7</td><td>Jumlah perangkat yang terhubung</td><td>Kuantitatif diskrit</td><td>Rasio</td><td>a count; 0 = no devices</td></tr>
+<tr><td>8</td><td>Status operasional mesin</td><td>Kualitatif</td><td>Nominal</td><td>ON/OFF/standby, no order</td></tr>
+<tr><td>9</td><td>Konsumsi daya sistem</td><td>Kuantitatif kontinu</td><td>Rasio</td><td>watts; 0 W = no power</td></tr>
+<tr><td>10</td><td>Jenis protokol komunikasi</td><td>Kualitatif</td><td>Nominal</td><td>labels (I2C, SPI, UART, Wi-Fi)</td></tr>
+<tr><td>11</td><td>Waktu siklus proses otomatis</td><td>Kuantitatif kontinu</td><td>Rasio</td><td>measured time</td></tr>
+<tr><td>12</td><td>Suhu operasional perangkat</td><td>Kuantitatif kontinu</td><td><b>Interval</b></td><td>°C: 0°C is not "no heat", and 40°C is not "twice as hot" as 20°C</td></tr>
+<tr><td>13</td><td>Mode pengoperasian sistem</td><td>Kualitatif</td><td>Nominal</td><td>manual/otomatis. <i>If the modes are levels (manual &lt; semi-otomatis &lt; otomatis), ordinal is defensible. Write the assumption.</i></td></tr>
+<tr><td>14</td><td>Tingkat kesalahan pembacaan sensor</td><td>Kuantitatif kontinu</td><td>Rasio</td><td>error rate in %; 0% = no errors</td></tr>
+<tr><td>15</td><td>Jumlah kegagalan sistem otomatis</td><td>Kuantitatif diskrit</td><td>Rasio</td><td>a count; 0 = no failures</td></tr>
+</tbody></table>
+<p class="small">Summary line for the answer sheet: Kualitatif nominal: 1, 3, 5, 8, 10, 13. Kuantitatif kontinu rasio: 2, 4, 6, 9, 11, 14. Kuantitatif diskrit rasio: 7, 15. Kuantitatif kontinu interval: 12.</p>
+
+<anchor id="R-LB3"/>
+<div class="solhead">LB40 · Question 3: choose 3 numeric and 3 categorical variables, with scales</div>
+<div class="qbox"><span class="qn">Soal.</span> Seorang engineer mengembangkan sensor otomatis untuk inspeksi kualitas barang. Tentukan 3 variabel numerik dan 3 variabel kategorik, beserta skala pengukurannya.
+<div class="en">Propose 3 numerical and 3 categorical variables for an automatic quality-inspection sensor, and give each one's scale.</div></div>
+<p class="small">Any sensible answer works. The marks come from the correct scale and a reason. A strong answer covers all four scales.</p>
+<table class="full"><thead><tr><th></th><th>Variabel</th><th>Jenis</th><th>Skala</th><th>Alasan</th></tr></thead><tbody>
+<tr><td rowspan="3">Numerik</td><td>Berat barang (gram)</td><td>Kuantitatif kontinu</td><td>Rasio</td><td>0 g = no weight; 200 g is twice 100 g</td></tr>
+<tr><td>Jumlah cacat per barang</td><td>Kuantitatif diskrit</td><td>Rasio</td><td>a count, true zero</td></tr>
+<tr><td>Suhu permukaan barang (°C)</td><td>Kuantitatif kontinu</td><td>Interval</td><td>0°C is not "no temperature"</td></tr>
+<tr><td rowspan="3">Kategorik</td><td>Status inspeksi (lolos / tidak lolos)</td><td>Kualitatif</td><td>Nominal</td><td>two labels, no order</td></tr>
+<tr><td>Jenis cacat (gores, retak, penyok)</td><td>Kualitatif</td><td>Nominal</td><td>labels, no order</td></tr>
+<tr><td>Grade kualitas (A / B / C)</td><td>Kualitatif</td><td>Ordinal</td><td>A &gt; B &gt; C, but the gaps are not measurable</td></tr>
+</tbody></table>
+<p class="small">Other good choices: dimensi/panjang (rasio), waktu inspeksi (rasio), kecerahan warna (rasio), warna barang (nominal), tingkat keparahan cacat ringan/sedang/berat (ordinal).</p>
+</section>
+
+<section>
+<anchor id="R-LA2"/>
+<div class="solhead" style="margin-top:0">LA40 · Question 2: signal amplitude data (n = 15, mV)</div>
+<div class="qbox"><span class="qn">Soal.</span> Data amplitudo sinyal sensor getaran (mV): 22, 75, 24, 67, 23, 26, 25, 28, 24, 26, 23, 25, 29, 27, 65.
+<ol><li>Hitunglah nilai mean</li><li>Tentukan five number summary</li><li>Hitung coefficient of variation</li><li>Buatlah diagram stem and leaf</li><li>Gambarkan boxplot dan identifikasi apakah terdapat outlier.</li></ol></div>
+<div class="given"><b>Step 0: sort and number the data</b> (do this first; the bold values are Q1, median, Q3)
+<table class="small" style="margin:1mm 0"><tbody><tr><th>Position</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td></tr><tr><th>Value</th><td>22</td><td>23</td><td>23</td><td><b>24</b></td><td>24</td><td>25</td><td>25</td><td><b>26</b></td><td>26</td><td>27</td><td>28</td><td><b>29</b></td><td>65</td><td>67</td><td>75</td></tr></tbody></table>
+n = 15 · Σx = 509 · Σx² = 21989</div>
+<div class="part"><div class="h">a. Mean</div>
+<div class="lab">Method</div><div>\(\bar x=\dfrac{\sum x_i}{n}\)</div>
+<div class="lab">Working</div><div>\(\bar x=\dfrac{509}{15}\)</div>
+<div class="lab ok">Answer</div><div><span class="ans">x̄ = 33.9333 mV</span></div>
+<div class="lab">Check</div><div>STAT 1-VAR → x̄ = 33.9333. The mean is far above most values (22–29) because of 65, 67, 75. That already hints at outliers.</div></div>
+<div class="part"><div class="h">b. Five-number summary</div>
+<div class="lab">Method</div><div>Positions for n = 15: Q1 at 0.25(16) = <b>4</b>, median at 0.5(16) = <b>8</b>, Q3 at 0.75(16) = <b>12</b>.</div>
+<div class="lab">Working</div><div>Min = x₍₁₎ = 22 · Q1 = x₍₄₎ = 24 · Median = x₍₈₎ = 26 · Q3 = x₍₁₂₎ = 29 · Max = x₍₁₅₎ = 75</div>
+<div class="lab ok">Answer</div><div><span class="ans">Min 22, Q1 24, Median 26, Q3 29, Max 75</span></div></div>
+<div class="part"><div class="h">c. Coefficient of variation</div>
+<div class="lab">Method</div><div>\(s^2=\dfrac{\sum x^2-(\sum x)^2/n}{n-1}\), then \(CV=\dfrac{s}{\bar x}\times100\%\)</div>
+<div class="lab">Working</div><div>\(s^2=\dfrac{21989-509^2/15}{14}=\dfrac{21989-17272.0667}{14}=\dfrac{4716.9333}{14}=336.9238\)<br>
+\(s=\sqrt{336.9238}=18.3555\) mV<br>
+\(CV=\dfrac{18.3555}{33.9333}\times100\%\)</div>
+<div class="lab ok">Answer</div><div><span class="ans">CV = 54.09%</span>. The amplitude is <b>not stable</b>: the SD is more than half of the mean, mainly because of the three large values.</div>
+<div class="lab">Check</div><div>STAT → sx = 18.3555. With σx (÷ n) you would get 52.26%, which is the wrong formula for a sample.</div></div>
+<div class="two"><div class="part"><div class="h">d. Stem-and-leaf</div>
+<div class="lab">Method</div><div>stem = tens digit, leaf = ones digit. Keep the empty stems 3, 4, 5 to show the gap.</div>
+<div class="lab ok">Answer</div><div><span class="stem">Stem | Leaf
+   2 | 2 3 3 4 4 5 5 6 6 7 8 9
+   3 |
+   4 |
+   5 |
+   6 | 5 7
+   7 | 5
+Key: 2 | 2 = 22 mV</span></div></div>
+<div class="part"><div class="h">e. Boxplot and outliers</div>
+<div class="lab">Working</div><div>IQR = 29 − 24 = 5<br>LL = 24 − 1.5(5) = 16.5<br>UL = 29 + 1.5(5) = 36.5<br>65, 67, 75 &gt; 36.5. The largest value inside is 29, so the upper whisker ends at 29. The lowest value 22 &gt; 16.5, so the lower whisker ends at 22.</div>
+<div class="lab ok">Answer</div><div><span class="ans">Outliers: 65, 67, 75 mV</span>. The rest of the data is tightly packed and right-skewed (mean 33.9 &gt; median 26).</div></div></div>
+<img class="bp" src="../svg/LA_q2.svg"/>
+</section>
+
+<section>
+<anchor id="R-LB1"/>
+<div class="solhead" style="margin-top:0">LB40 · Question 1: machine temperature data (n = 15, °C)</div>
+<div class="qbox"><span class="qn">Soal.</span> Data suhu mesin (°C): 85, 16, 24, 27, 25, 56, 28, 24, 25, 27, 16, 25, 53, 76, 58.
+<ol><li>mean</li><li>median</li><li>interquartile range (IQR)</li><li>standar deviasi</li><li>Gambarkan boxplotnya. Tentukan apakah terdapat outlier.</li></ol></div>
+<div class="given"><b>Step 0: sort</b> (bold = Q1, median, Q3)
+<table class="small" style="margin:1mm 0"><tbody><tr><th>Position</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td></tr><tr><th>Value</th><td>16</td><td>16</td><td>24</td><td><b>24</b></td><td>25</td><td>25</td><td>25</td><td><b>27</b></td><td>27</td><td>28</td><td>53</td><td><b>56</b></td><td>58</td><td>76</td><td>85</td></tr></tbody></table>
+n = 15 · Σx = 565 · Σx² = 28091</div>
+<div class="part"><div class="h">a. Mean</div>
+<div class="lab">Working</div><div>\(\bar x=\dfrac{565}{15}\)</div>
+<div class="lab ok">Answer</div><div><span class="ans">x̄ = 37.6667 °C</span></div></div>
+<div class="two"><div class="part"><div class="h">b. Median</div>
+<div class="lab">Working</div><div>position 0.5(15 + 1) = 8 → x₍₈₎</div>
+<div class="lab ok">Answer</div><div><span class="ans">Median = 27 °C</span>. The median is below the mean, so the data are skewed right.</div></div>
+<div class="part"><div class="h">c. IQR</div>
+<div class="lab">Working</div><div>Q1 = x₍₄₎ = 24 · Q3 = x₍₁₂₎ = 56 · IQR = 56 − 24</div>
+<div class="lab ok">Answer</div><div><span class="ans">IQR = 32 °C</span></div></div>
+</div>
+<div class="part"><div class="h">d. Standard deviation (sample)</div>
+<div class="lab">Working</div><div>\(s^2=\dfrac{28091-565^2/15}{14}=\dfrac{28091-21281.6667}{14}=\dfrac{6809.3333}{14}=486.3810\)<br>\(s=\sqrt{486.3810}\)</div>
+<div class="lab ok">Answer</div><div><span class="ans">s = 22.0540 °C</span></div>
+<div class="lab">Check</div><div>STAT → sx = 22.0540 (σx = 21.3062 is the population version). CV would be 22.054/37.667 = 58.55%.</div></div>
+<div class="part"><div class="h">e. Boxplot and outliers</div>
+<div class="lab">Working</div><div>LL = 24 − 1.5(32) = −24 · UL = 56 + 1.5(32) = 104. Every value is between −24 and 104, so the whiskers run to the min 16 and the max 85.</div>
+<div class="lab ok">Answer</div><div><span class="ans">No outliers</span> <span class="id">(tidak terdapat outlier)</span>. The box is long on the right (median 27 is close to Q1 = 24), so the distribution is skewed right.</div>
+<div class="lab bad">Trap</div><div>76 and 85 <i>look</i> extreme, but IQR = 32 makes the fences wide. Compute the fences; never guess.</div></div>
+<p class="small">Five-number summary (not asked, but useful for drawing): 16, 24, 27, 56, 85. Stem-and-leaf: <span class="mono">1|6 6 · 2|4 4 5 5 5 7 7 8 · 3| · 4| · 5|3 6 8 · 6| · 7|6 · 8|5</span></p>
+<img class="bp" src="../svg/LB_q1.svg"/>
+</section>
+
+<section>
+<anchor id="R-LA3"/>
+<div class="solhead" style="margin-top:0">LA40 · Question 3: contingency table (OS × condition)</div>
+<div class="given"><b>Step 0: add the totals</b>
+<table class="small"><thead><tr><th>Sistem Operasi</th><th>Baik</th><th>Sedang</th><th>Rusak</th><th>Total</th></tr></thead><tbody>
+<tr><th>Windows</th><td>40</td><td>10</td><td>10</td><td><b>60</b></td></tr>
+<tr><th>Linux</th><td>15</td><td>15</td><td>10</td><td><b>40</b></td></tr>
+<tr><th>macOS</th><td>20</td><td>5</td><td>5</td><td><b>30</b></td></tr>
+<tr><th>Total</th><td><b>75</b></td><td><b>30</b></td><td><b>25</b></td><td><b>130</b></td></tr></tbody></table></div>
+<div class="part"><div class="h">a. P(macOS dan sedang): joint</div>
+<div class="lab">Method</div><div>cell ÷ grand total</div>
+<div class="lab ok">Answer</div><div>\(\P(M\cap S)=\dfrac{5}{130}=\) <span class="ans">0.0385</span></div></div>
+<div class="part"><div class="h">b. P(Windows atau rusak): union</div>
+<div class="lab">Method</div><div>\(\P(W\cup R)=\P(W)+\P(R)-\P(W\cap R)\)</div>
+<div class="lab">Working</div><div>\(\dfrac{60}{130}+\dfrac{25}{130}-\dfrac{10}{130}=\dfrac{75}{130}\)</div>
+<div class="lab ok">Answer</div><div><span class="ans">0.5769</span></div>
+<div class="lab">Check</div><div>Count the cells directly: Windows row 40 + 10 + 10 plus the other rusak cells 10 + 5 = 75 ✓</div></div>
+<div class="part"><div class="h">c. P(Linux | rusak): conditional</div>
+<div class="lab">Method</div><div>The condition is "rusak", so divide by the rusak column total (25).</div>
+<div class="lab ok">Answer</div><div>\(\P(L\mid R)=\dfrac{10}{25}=\) <span class="ans">0.4</span></div></div>
+<div class="part"><div class="h">d. P(sedang | macOS)</div>
+<div class="lab ok">Answer</div><div>\(\dfrac{5}{30}=\) <span class="ans">0.1667</span> (divide by the macOS row total)</div></div>
+<div class="part"><div class="h">e. P(Windows | baik)</div>
+<div class="lab ok">Answer</div><div>\(\dfrac{40}{75}=\) <span class="ans">0.5333</span> (divide by the baik column total)</div></div>
+<div class="part"><div class="h">f. Are OS type and condition independent?</div>
+<div class="lab">Method</div><div>Independent only if \(\P(A\mid B)=\P(A)\) for <b>every</b> cell. One counter-example is enough to say "no".</div>
+<div class="lab">Working</div><div>\(\P(W\mid \text{Baik})=0.5333\) but \(\P(W)=\dfrac{60}{130}=0.4615\).<br>
+Or: \(\P(W\cap \text{Baik})=\frac{40}{130}=0.3077\) vs \(\P(W)\P(\text{Baik})=0.4615\times\frac{75}{130}=0.2663\).</div>
+<div class="lab ok">Answer</div><div><span class="ans">Not independent</span> <span class="id">(tidak saling bebas)</span>: Windows computers are more often in good condition than computers overall.</div></div>
+</section>
+
+<section>
+<anchor id="R-LB2"/>
+<div class="solhead" style="margin-top:0">LB40 · Question 2: contingency table (CPU temperature × system failure)</div>
+<div class="given"><table class="small"><thead><tr><th>Suhu CPU</th><th>Gagal (G)</th><th>Tidak Gagal (TG)</th><th>Total</th></tr></thead><tbody>
+<tr><th>Normal (N)</th><td>10</td><td>110</td><td><b>120</b></td></tr>
+<tr><th>Tinggi (T)</th><td>40</td><td>40</td><td><b>80</b></td></tr>
+<tr><th>Total</th><td><b>50</b></td><td><b>150</b></td><td><b>200</b></td></tr></tbody></table></div>
+<div class="two"><div>
+<div class="part"><div class="h">a. P(tinggi dan gagal)</div><div class="lab ok">Answer</div><div>40/200 = <span class="ans">0.20</span></div></div>
+<div class="part"><div class="h">b. P(normal dan tidak gagal)</div><div class="lab ok">Answer</div><div>110/200 = <span class="ans">0.55</span></div></div>
+<div class="part"><div class="h">c. P(gagal): marginal</div><div class="lab ok">Answer</div><div>50/200 = <span class="ans">0.25</span></div></div>
+</div><div>
+<div class="part"><div class="h">d. P(tinggi atau gagal)</div><div class="lab">Working</div><div>(80 + 50 − 40)/200 = 90/200</div><div class="lab ok">Answer</div><div><span class="ans">0.45</span></div></div>
+<div class="part"><div class="h">e. P(tinggi | gagal)</div><div class="lab">Working</div><div>divide by the gagal total: 40/50</div><div class="lab ok">Answer</div><div><span class="ans">0.80</span></div></div>
+<div class="part"><div class="h">f. P(tidak gagal | normal)</div><div class="lab">Working</div><div>divide by the normal total: 110/120</div><div class="lab ok">Answer</div><div><span class="ans">0.9167</span></div></div>
+</div></div>
+<div class="tip">Not asked, but expect it on the midterm: are temperature and failure independent? P(G | T) = 40/80 = 0.5, but P(G) = 0.25, so <b>no</b>. A hot CPU doubles the failure rate: hot CPUs are 40% of the computers but 80% of the failures.</div>
+
+<anchor id="R-LA4"/>
+<div class="solhead">LA40 · Question 4: Binomial, RAM modules (8% fail, n = 20)</div>
+<div class="given"><b>Known:</b> X = banyaknya modul RAM gagal. Each module fails independently with p = 0.08 and n = 20 are tested, so <b>X ~ B(20, 0.08)</b>.<br>
+\(\P(X=x)=\binom{20}{x}(0.08)^x(0.92)^{20-x}\) → P(0) = 0.1887, P(1) = 0.3282, P(2) = 0.2711, P(3) = 0.1414, P(4) = 0.0523, P(5) = 0.0145</div>
+<div class="part"><div class="h">a. Paling banyak 2: P(X ≤ 2)</div>
+<div class="lab">Working</div><div>P(0) + P(1) + P(2) = 0.1887 + 0.3282 + 0.2711<br>e.g. \(\P(2)=\binom{20}{2}(0.08)^2(0.92)^{18}=190(0.0064)(0.2229)=0.2711\)</div>
+<div class="lab ok">Answer</div><div><span class="ans">0.7879</span></div>
+<div class="lab">Check</div><div>Binomial CD: x = 2, N = 20, p = 0.08 → 0.78795</div></div>
+<div class="part"><div class="h">b. Setidaknya 4: P(X ≥ 4)</div>
+<div class="lab">Working</div><div>1 − P(X ≤ <b>3</b>) = 1 − (0.1887 + 0.3282 + 0.2711 + 0.1414) = 1 − 0.9294</div>
+<div class="lab ok">Answer</div><div><span class="ans">0.0706</span></div>
+<div class="lab bad">Trap</div><div>1 − CD(4) = 0.0183 is wrong: it drops X = 4.</div></div>
+<div class="part"><div class="h">c. Dari 2 hingga 5: P(2 ≤ X ≤ 5)</div>
+<div class="lab">Working</div><div>P(2) + P(3) + P(4) + P(5) = 0.2711 + 0.1414 + 0.0523 + 0.0145 &nbsp;(= CD(5) − CD(1))</div>
+<div class="lab ok">Answer</div><div><span class="ans">0.4793</span></div></div>
+<div class="part"><div class="h">d. Mean and SD</div>
+<div class="lab">Working</div><div>μ = np = 20(0.08) · σ² = np(1 − p) = 20(0.08)(0.92) = 1.472 · σ = √1.472</div>
+<div class="lab ok">Answer</div><div><span class="ans">μ = 1.6 modules, σ = 1.2133</span></div></div>
+</section>
+
+<section>
+<anchor id="R-LB4"/>
+<div class="solhead" style="margin-top:0">LB40 · Question 4: Binomial, data packets (8% error, n = 12)</div>
+<div class="given"><b>Known:</b> X = banyaknya paket error, <b>X ~ B(12, 0.08)</b>. P(0) = 0.92¹² = 0.3677, P(1) = 0.3837, P(2) = 0.1835, P(3) = 0.0532.</div>
+<div class="part"><div class="h">a. Tepat 3: P(X = 3)</div>
+<div class="lab">Working</div><div>\(\binom{12}{3}(0.08)^3(0.92)^9=220(0.000512)(0.4722)\)</div>
+<div class="lab ok">Answer</div><div><span class="ans">0.0532</span> (Binomial PD → 0.05318)</div></div>
+<div class="part"><div class="h">b. Paling banyak 2: P(X ≤ 2)</div>
+<div class="lab">Working</div><div>0.3677 + 0.3837 + 0.1835</div>
+<div class="lab ok">Answer</div><div><span class="ans">0.9348</span> (CD → 0.93480; adding rounded terms gives 0.9349)</div></div>
+<div class="part"><div class="h">c. Setidaknya 1: P(X ≥ 1)</div>
+<div class="lab">Working</div><div>1 − P(X = 0) = 1 − 0.92¹² = 1 − 0.3677</div>
+<div class="lab ok">Answer</div><div><span class="ans">0.6323</span></div></div>
+<div class="part"><div class="h">d. Mean and SD</div>
+<div class="lab">Working</div><div>μ = 12(0.08) · σ = √(12 · 0.08 · 0.92) = √0.8832</div>
+<div class="lab ok">Answer</div><div><span class="ans">μ = 0.96 packets, σ = 0.9398</span></div></div>
+
+<anchor id="R-Q5"/>
+<div class="solhead">LA40 + LB40 · Question 5: Poisson, server errors (4 per hour)</div>
+<div class="given"><b>Known:</b> X = banyaknya system error per jam, <b>X ~ Poisson(λ = 4)</b>. \(\P(X=x)=\dfrac{e^{-4}4^x}{x!}\), with e⁻⁴ = 0.018316.<br>P(0) = 0.0183, P(1) = 0.0733, P(2) = 0.1465, P(3) = 0.1954. Parts a–c are per hour, because no other interval is stated.</div>
+<div class="part"><div class="h">a. Tepat 3: P(X = 3)</div>
+<div class="lab">Working</div><div>\(\dfrac{e^{-4}4^3}{3!}=\dfrac{0.018316\times64}{6}\)</div>
+<div class="lab ok">Answer</div><div><span class="ans">0.1954</span> (Poisson PD x = 3, μ = 4)</div></div>
+<div class="part"><div class="h">b. Paling banyak 2: P(X ≤ 2)</div>
+<div class="lab">Working</div><div>\(e^{-4}\left(1+4+\frac{16}{2}\right)=13e^{-4}\)</div>
+<div class="lab ok">Answer</div><div><span class="ans">0.2381</span></div></div>
+<div class="part"><div class="h">c. Setidaknya 1: P(X ≥ 1)</div>
+<div class="lab">Working</div><div>1 − P(0) = 1 − e⁻⁴</div>
+<div class="lab ok">Answer</div><div><span class="ans">0.9817</span></div></div>
+<div class="part"><div class="h">d. Tidak ada error selama 30 menit</div>
+<div class="lab">Method</div><div><b>Rescale λ</b>: 4 per 60 minutes → λ = 4 × 30/60 = 2 per 30 minutes. Y ~ Poisson(2).</div>
+<div class="lab">Working</div><div>\(\P(Y=0)=\dfrac{e^{-2}2^0}{0!}=e^{-2}\)</div>
+<div class="lab ok">Answer</div><div><span class="ans">0.1353</span></div>
+<div class="lab bad">Trap</div><div>Using λ = 4 gives 0.0183, the probability for a whole hour.</div></div>
+</section>
+
+<section>
+<anchor id="R-Q6"/>
+<div class="solhead" style="margin-top:0">LA40 + LB40 · Question 6: Normal, processing time (mean 50 ms, variance 15)</div>
+<div class="given"><b>Known:</b> X = waktu pemrosesan (ms), X ~ N(50, 15). <b>The variance is 15</b> (the question writes "varians 15 milidetik"; the unit should be ms²), so <b>σ = √15 = 3.8730 ms</b>.<br>
+Method for every part: \(z=\dfrac{x-50}{3.873}\), round z to 2 decimals, read Φ(z) from Tab T.</div>
+<div class="part"><div class="h">a. P(X &lt; 45)</div>
+<div class="lab">Working</div><div>\(z=\dfrac{45-50}{3.873}=-1.29\) → Φ(−1.29)</div>
+<div class="lab ok">Answer</div><div><span class="ans">0.0985</span></div>
+<div class="lab">Check</div><div>Normal CD: Lower −1×10⁹⁹, Upper 45, σ = 3.873, μ = 50 → 0.09835</div></div>
+<div class="part"><div class="h">b. P(48 &lt; X &lt; 56)</div>
+<div class="lab">Working</div><div>\(z_1=\dfrac{48-50}{3.873}=-0.52\), \(z_2=\dfrac{56-50}{3.873}=1.55\)<br>Φ(1.55) − Φ(−0.52) = 0.9394 − 0.3015</div>
+<div class="lab ok">Answer</div><div><span class="ans">0.6379</span> (Normal CD gives 0.6365; the difference comes from rounding z)</div></div>
+<div class="part"><div class="h">c. P(X &gt; 60)</div>
+<div class="lab">Working</div><div>\(z=\dfrac{60-50}{3.873}=2.58\) → 1 − Φ(2.58) = 1 − 0.9951</div>
+<div class="lab ok">Answer</div><div><span class="ans">0.0049</span></div>
+<div class="lab bad">Trap</div><div>With σ = 15 you would get z = 0.67 and 0.2514. A tail probability that large for a value only 10 ms above the mean should make you check σ.</div></div>
+<div class="part"><div class="h">d. Maximum time so that 97% of tasks finish within it</div>
+<div class="lab">Method</div><div>"Dalam waktu tersebut atau lebih cepat" = at most x, so the <b>left area is 0.97</b>. Find z, then \(x=\mu+z\sigma\).</div>
+<div class="lab">Working</div><div>In the table body, 0.9699 (z = 1.88) is closest to 0.97 → z = 1.88<br>\(x=50+1.88(3.873)=50+7.281\)</div>
+<div class="lab ok">Answer</div><div><span class="ans">x ≈ 57.28 ms</span></div>
+<div class="lab">Check</div><div>Inverse Normal: Area 0.97, σ = 3.873, μ = 50 → 57.284</div></div>
+<p class="small">Sketch for every normal part: draw the bell curve, mark μ = 50, shade the asked region. It shows the marker which tail you used and catches "1 −" errors.</p>
+</section>

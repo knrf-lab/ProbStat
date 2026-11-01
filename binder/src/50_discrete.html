@@ -1,0 +1,133 @@
+<section>
+<anchor id="S3" label="3 · Discrete Random Variables"/>
+<h2 class="sec">3 · Discrete random variables <span style="font-weight:normal;font-size:10pt">(Sessions 5–8, Devore Ch. 3)</span></h2>
+<div class="two"><div>
+<h3>Random variable <span class="id">(variabel random)</span></h3>
+<p>A <b>function</b> that maps each outcome of an experiment to a number <span class="id">(fungsi yang memetakan outcome ke bilangan)</span>. It is written with a capital letter (X), and its values with a lower-case letter (x).</p>
+<ul>
+<li>Pass/fail status: X = {lulus, tidak lulus} → coded {1, 0}. This is a <b>Bernoulli</b> random variable.</li>
+<li>Number of phones owned: X = {0, 1, 2, …} → <b>discrete</b>.</li>
+<li>Midterm score 0 ≤ Z ≤ 100 (any real number) → <b>continuous</b> (Ch. 4).</li>
+</ul>
+</div><div>
+<anchor id="s3-pmf"/>
+<h3>pmf and cdf</h3>
+<div class="box">
+<b>pmf</b> <span class="id">(fungsi peluang / probability mass function)</span>: \(p(x)=\P(X=x)\)<br>
+Valid if: \(0\le p(x)\le 1\) and \(\sum_x p(x)=1\).<br>
+<b>cdf</b> <span class="id">(fungsi kumulatif)</span>: \(F(x)=\P(X\le x)=\sum_{y\le x}p(y)\). It is a step function, non-decreasing, rising from 0 to 1.<br>
+\(\P(a\le X\le b)=F(b)-F(a^-)\), where \(a^-\) is the possible value just below a.<br>
+\(p(x)=F(x)-F(x^-)\), the size of the jump at x.</div>
+</div></div>
+
+<div class="two"><div>
+<div class="ex"><span class="t">Coin tossed 3 times, X = # heads (class)</span><br>
+8 equally likely outcomes, each 1/8: HHH(3) HHT(2) HTH(2) THH(2) HTT(1) THT(1) TTH(1) TTT(0)
+<table class="full small"><thead><tr><th>x</th><th>0</th><th>1</th><th>2</th><th>3</th></tr></thead>
+<tbody><tr><th>p(x)</th><td>1/8</td><td>3/8</td><td>3/8</td><td>1/8</td></tr>
+<tr><th>F(x)</th><td>1/8</td><td>4/8</td><td>7/8</td><td>1</td></tr></tbody></table>
+\(F(x)=\begin{cases}0 & x&lt;0\\ 1/8 & 0\le x&lt;1\\ 4/8 & 1\le x&lt;2\\ 7/8 & 2\le x&lt;3\\ 1 & x\ge 3\end{cases}\)
+</div>
+</div><div>
+<div class="ex"><span class="t">Table with an unknown constant</span><br>
+p(x): x = 0, 1, 2, 3 → 0.1, k, 2k, 0.3. Use Σ = 1: 0.4 + 3k = 1, so k = 0.2.<br>
+Always check that every p(x) is between 0 and 1 afterwards.</div>
+<div class="ex"><span class="t">Formula pmf</span>: p(x) = c·x for x = 1, 2, 3, 4 → c(1+2+3+4) = 1 → c = 1/10.</div>
+</div></div>
+
+<anchor id="s3-ev"/>
+<h3>Expected value and variance</h3>
+<div class="two"><div class="box">
+\[\mu=\E(X)=\sum_x x\,p(x)\qquad \E[h(X)]=\sum_x h(x)\,p(x)\]
+\[\sigma^2=\Var(X)=\sum (x-\mu)^2p(x)=\E(X^2)-[\E(X)]^2\]
+\(\sigma=\sqrt{\sigma^2}\)<br>
+\(\E(aX+b)=a\mu+b\), \(\Var(aX+b)=a^2\sigma^2\), \(\sigma_{aX+b}=|a|\sigma\)</div>
+<div class="ex"><span class="t">Class contoh soal: X = positive difference of 2 dice <span class="id">(selisih positif 2 mata dadu)</span></span><br>
+Count the 36 pairs: X=0: 6, X=1: 10, X=2: 8, X=3: 6, X=4: 4, X=5: 2.
+<table class="full small"><thead><tr><th>x</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>Σ</th></tr></thead>
+<tbody><tr><th>p(x)</th><td>6/36</td><td>10/36</td><td>8/36</td><td>6/36</td><td>4/36</td><td>2/36</td><td>1</td></tr>
+<tr><th>x·p</th><td>0</td><td>10/36</td><td>16/36</td><td>18/36</td><td>16/36</td><td>10/36</td><td>70/36</td></tr>
+<tr><th>x²·p</th><td>0</td><td>10/36</td><td>32/36</td><td>54/36</td><td>64/36</td><td>50/36</td><td>210/36</td></tr></tbody></table>
+μ = 70/36 = <b>1.9444</b>; E(X²) = 210/36 = 5.8333; σ² = 5.8333 − 1.9444² = <b>2.0525</b>; σ = 1.4327</div></div>
+<div class="ex"><span class="t">Fair die (slides):</span> μ = 21/6 = 3.5, E(X²) = 91/6, σ² = 91/6 − 12.25 = 35/12 = 2.9167, σ = 1.7078.</div>
+</section>
+
+<section>
+<anchor id="s3-binom"/>
+<h3>Binomial distribution <span class="id">(distribusi binomial)</span>: X ~ B(n, p)</h3>
+<div class="two"><div class="box">
+<b>Check all four conditions</b> (class board):<br>
+1. each trial has only <b>2 outcomes</b> (success/failure)<br>
+2. a <b>fixed number</b> of trials n<br>
+3. trials are <b>independent</b><br>
+4. P(success) = p is <b>known and constant</b> on every trial<br>
+X = number of successes in n trials.
+\[\P(X=x)=\binom{n}{x}p^x(1-p)^{n-x},\quad x=0,1,\dots,n\]
+\(\mu=np\), \(\sigma^2=np(1-p)\) <span class="small">(q = 1 − p)</span></div>
+<div>
+<div class="warn">Sampling <b>without replacement</b> from a small population breaks independence, so use the Hypergeometric. If the sample is ≤ 5% of the population, the Binomial is OK (Devore).</div>
+<div class="calc">Binomial PD (x, N, p) for P(X = x). Binomial CD for P(X ≤ x). For P(X ≥ k), use 1 − CD(k−1).</div>
+<div class="ex"><span class="t">Marksman (slides): hits 80%, 5 shots.</span> P(X = 3) = 10(0.8)³(0.2)² = 0.2048. P(X &gt; 3) = P(4) + P(5) = 0.4096 + 0.3277 = 0.7373. μ = 4, σ = √0.8 = 0.894. Zero hits is (0 − 4)/0.894 = −4.5 SDs from the mean, so it would be very unusual.</div>
+</div></div>
+
+<div class="ex"><span class="src">class board</span><span class="t">Contoh soal: P(pass) = 0,4, 8 students. X ~ B(8, 0.4).</span><br>
+<b>1. P(exactly 3 pass)</b> = \(\binom83(0.4)^3(0.6)^5=56(0.064)(0.07776)=\) <b>0.2787</b><br>
+<b>2. P(2–4 pass)</b> = P(2) + P(3) + P(4) = 0.2090 + 0.2787 + 0.2322 = <b>0.7200</b><br>
+<b>3. P(at most 3) <span class="id">(paling banyak 3)</span></b> = P(0) + P(1) + P(2) + P(3) = 0.0168 + 0.0896 + 0.2090 + 0.2787 = <b>0.5941</b> (the board's 0.592 comes from rounding too early)<br>
+<b>4. P(at least 8) <span class="id">(paling sedikit 8)</span></b> = P(X = 8) = (0.4)⁸ = <b>0.00066</b><br>
+Mean = 8(0.4) = 3.2, variance = 8(0.4)(0.6) = 1.92.
+<table class="full small" style="margin-top:1mm"><thead><tr><th>x</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr></thead>
+<tbody><tr><th>p(x)</th><td>.0168</td><td>.0896</td><td>.2090</td><td>.2787</td><td>.2322</td><td>.1239</td><td>.0413</td><td>.0079</td><td>.0007</td></tr></tbody></table></div>
+<div class="ex"><span class="src">class board</span><span class="t">X ~ B(10, 0.25)</span>: a) P(X = 5) = 252(0.25)⁵(0.75)⁵ = <b>0.0584</b> · b) P(X ≥ 4) = 1 − [P(0) + P(1) + P(2) + P(3)] = 1 − (0.0563 + 0.1877 + 0.2816 + 0.2503) = 1 − 0.7759 = <b>0.2241</b> · c) P(X = 0) = 0.75¹⁰ = <b>0.0563</b> · d) P(X ≤ 2) = <b>0.5256</b></div>
+
+<anchor id="s3-pois"/>
+<h3>Poisson distribution <span class="id">(distribusi Poisson)</span>: X ~ Poisson(λ)</h3>
+<div class="two"><div class="box">
+X = <b>number of events</b> in a fixed interval of time or space (calls per hour, typos per page, accidents per week, vehicles through a toll gate).<br>
+λ = average number of events <b>in that interval</b> <span class="id">(rata-rata kejadian)</span>.
+\[\P(X=x)=\frac{e^{-\lambda}\lambda^x}{x!},\quad x=0,1,2,\dots\]
+\(\mu=\lambda\), \(\sigma^2=\lambda\)<br>
+<b>Rescale λ</b>: rate α per unit, interval length t → λ = αt.<br>
+Approximates the Binomial when n is large and p is small: λ = np (Devore: n &gt; 50, np &lt; 5).</div>
+<div>
+<div class="ex"><span class="src">class board</span><span class="t">Typos: λ = 3 per page.</span><br>
+1. P(X = 5) = e⁻³3⁵/5! = <b>0.1008</b><br>
+2. P(X ≤ 3) = e⁻³(1 + 3 + 9/2 + 27/6) = 0.0498 + 0.1494 + 0.2240 + 0.2240 = <b>0.6472</b><br>
+3. P(X ≥ 2) = 1 − P(0) − P(1) = 1 − 0.0498 − 0.1494 = <b>0.8009</b></div>
+<div class="ex"><span class="t">Accidents (slides): λ = 2 per week.</span> P(X = 1) = 2e⁻² = 0.2707. P(X ≥ 8) = 1 − P(X ≤ 7) = 1 − 0.9989 = 0.0011.<br>
+For <b>2 weeks</b>, λ = 4.</div></div></div>
+</section>
+
+<section>
+<anchor id="s3-hyper"/>
+<h3>Hypergeometric distribution: sampling <b>without replacement</b> <span class="id">(tanpa pengembalian)</span></h3>
+<div class="two"><div class="box">
+Population of N items, of which M are "successes". Draw n without replacement. X = number of successes in the sample.
+\[\P(X=x)=\frac{\binom{M}{x}\binom{N-M}{n-x}}{\binom{N}{n}}\]
+\(\E(X)=n\dfrac{M}{N}\), \(\Var(X)=\dfrac{N-n}{N-1}\cdot n\dfrac{M}{N}\Big(1-\dfrac{M}{N}\Big)\)<br>
+<span class="small">The factor (N − n)/(N − 1) is the finite-population correction. Without it, the variance is the Binomial one with p = M/N.</span></div>
+<div class="ex"><span class="t">Batteries (slides).</span> A pack of 8 has 2 defective. Pick 4. Success = a working battery: N = 8, M = 6, n = 4.<br>
+P(all 4 work) = \(\dfrac{\binom64\binom20}{\binom84}=\dfrac{15}{70}=\mathbf{0.2143}\)<br>
+E(X) = 4(6/8) = 3; Var(X) = (4/7)(4)(0.75)(0.25) = 0.4286.</div></div>
+
+<anchor id="s3-geo"/>
+<h3>Geometric and Negative Binomial (listed in the sub-topics; low priority)</h3>
+<div class="two"><div class="box small">
+<b>Geometric</b>: X = trial number of the <b>first</b> success. \(\P(X=x)=(1-p)^{x-1}p\), x = 1, 2, …<br>
+\(\P(X&gt;k)=(1-p)^k\), \(\E(X)=1/p\), \(\Var(X)=(1-p)/p^2\).<br>
+Example: p = 0.1. P(first success on the 3rd try) = 0.9²(0.1) = 0.081. P(success within 3 tries) = 1 − 0.9³ = 0.271.</div>
+<div class="box small">
+<b>Negative Binomial</b> (Devore's form): X = number of <b>failures</b> before the r-th success.<br>
+\(\P(X=x)=\binom{x+r-1}{r-1}p^r(1-p)^x\), \(\E(X)=\dfrac{r(1-p)}{p}\), \(\Var(X)=\dfrac{r(1-p)}{p^2}\).<br>
+Example: r = 2, p = 0.2, x = 3 failures: \(\binom41(0.2)^2(0.8)^3=0.0819\).<br>
+<i>Other books count total trials X + r. Check which definition the question uses.</i></div></div>
+
+<h3>Discrete checklist</h3>
+<ol class="small">
+<li>Define X in words <span class="id">(X = banyaknya …)</span> and list its possible values. The class boards always do this.</li>
+<li>Name the distribution and its parameters: "X ~ B(8, 0.4)", "X ~ Poisson(3)".</li>
+<li>Translate the words into an inequality (Tab G), and turn it into = / ≤ / complement form.</li>
+<li>Write the formula, substitute, and compute. Check with DIST.</li>
+<li>Sanity check: is 0 ≤ P ≤ 1? Is it near the mean, which is where the largest probabilities are?</li>
+</ol>
+</section>
